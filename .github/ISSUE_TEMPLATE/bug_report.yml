@@ -1,0 +1,38 @@
+name: 使用问题 / Bug report
+description: 报告安装、连接、行程编辑等问题 / Report a reproducible problem.
+title: "[问题] "
+body:
+  - type: markdown
+    attributes:
+      value: "感谢反馈。请勿填写密码、验证码、API 密钥或私人行程；截图可先遮住个人信息。"
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 使用平台 / Platform
+      options:
+        - Windows
+        - Android
+        - 网页 / Web
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 软件版本与系统 / App and OS version
+      placeholder: "例如 Windows 1.0.1 / Windows 11；Android 1.1.4 / 手机型号"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤 / Steps to reproduce
+      placeholder: "依次做了什么，在哪一步遇到问题？"
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: 实际结果和期望结果 / Actual and expected result
+      placeholder: "可以附脱敏截图或错误提示。"
+    validations:
+      required: true
