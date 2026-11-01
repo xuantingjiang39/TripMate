@@ -13,6 +13,7 @@
 !/tools/
 /tools/*
 !/tools/capture-promo.cjs
+!/tools/verify-downloads.cjs
 
 !/TripMate-desktop-v54/
 /TripMate-desktop-v54/*
@@ -48,6 +49,15 @@
 !/guest-v43/*.html
 !/guest-v43/*.md
 !/guest-v43/*.txt
+
+!/guest-v55/
+/guest-v55/*
+!/guest-v55/*.mjs
+!/guest-v55/*.sh
+!/guest-v55/*.html
+!/guest-v55/*.md
+!/guest-v55/*.txt
+!/guest-v55/tripmate-icon.png
 
 # Defense in depth inside the allowlisted source directories.
 **/node_modules/

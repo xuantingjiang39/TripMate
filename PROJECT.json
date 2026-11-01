@@ -7,7 +7,7 @@
     "url": "https://github.com/xuantingjiang39/TripMate",
     "visibility": "public",
     "defaultBranch": "main",
-    "releaseTag": "v54"
+    "releaseTag": "v55"
   },
   "components": {
     "windows": {
@@ -26,7 +26,10 @@
       "androidBuildWorkspace": "C:/tmb"
     },
     "server": {
-      "source": "guest-v43",
+      "source": "guest-v55",
+      "version": "v55-download-page",
+      "release": 55,
+      "installer": "TripMate-server-v55-downloads.zip",
       "lastObservedVersion": "v43-real-map-navigation",
       "deployment": "manual-only"
     }

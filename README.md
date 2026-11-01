@@ -68,13 +68,17 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 | --- | --- | --- | --- |
 | Windows | [TripMate-desktop-v54](TripMate-desktop-v54/README.md) | 1.0.1 / v54 | Electron 联网桌面客户端，路线与日出新图标 |
 | Android / 原生移动端 | [TripMate-native-v52](TripMate-native-v52/README-原生App.md) | 1.1.4 / v52 | 同步响应与离线攻略保护 |
-| 服务器与网页 | `guest-v43/` | v43-real-map-navigation | 现有线上服务器最后经只读健康检查确认的版本 |
+| 服务器与网页 | `guest-v55/` | v55-download-page | 新增公开下载页；待手动部署，线上最后确认仍是 v43 |
 
 Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-toolchain/`。不要把 Windows 桌面版覆盖到 Android 源码目录。
 
 当前 Windows 版沿用服务器网页，因此原生 Android 的独立实现不会自动迁移到 Windows 客户端。
 
 ## 下载安装包
+
+服务器更新至 v55 后，网站顶部与登录页均有「软件下载」入口，`/download` 可免登录选择安卓或 Windows；iPhone / iPad 提示使用网页版。安装文件来自下方 GitHub Releases，详情见 [v55 安装说明](guest-v55/v55-软件下载说明.md)。
+
+- [v55 服务器与网页更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v55/TripMate-server-v55-downloads.zip)
 
 - [Windows 安装版 1.0.1](https://github.com/xuantingjiang39/TripMate/releases/download/v54/TripMate-v54-Windows-1.0.1-Setup.exe)
 - [Windows 便携版 1.0.1](https://github.com/xuantingjiang39/TripMate/releases/download/v54/TripMate-v54-Windows-1.0.1-portable.zip)
