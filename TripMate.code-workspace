@@ -1,0 +1,17 @@
+{
+  "folders": [{"name": "TripMate", "path": "."}],
+  "settings": {
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/dist": true,
+      "android-toolchain": true,
+      "**/.build-check": true,
+      "**/test-results": true
+    },
+    "files.watcherExclude": {
+      "**/node_modules/**": true,
+      "**/dist/**": true,
+      "**/android-toolchain/**": true
+    }
+  }
+}

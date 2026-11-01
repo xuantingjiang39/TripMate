@@ -1,0 +1,12 @@
+:root{color-scheme:light;--brand:#2962d6;--ink:#12264a;--muted:#53647d;--line:#dde3ed;--paper:#f7f8fc;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 "Microsoft YaHei",system-ui,sans-serif;caret-color:var(--brand)}
+::selection{background:#d9e7ff;color:var(--ink)}
+.toolbar{height:56px;display:flex;align-items:center;gap:24px;padding:0 20px;border-bottom:1px solid var(--line);background:var(--white);white-space:nowrap}
+.brand{display:flex;gap:9px;align-items:center;font-weight:700;font-size:16px}.brand b{color:var(--brand)}.brand img{border-radius:7px}
+.connection{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:12px}.dot{width:7px;height:7px;border-radius:50%;background:#738097}.connection[data-state=ready] .dot{background:#14815d}.connection[data-state=error] .dot{background:#ba3d37}
+nav{display:flex;align-items:center;gap:5px;margin-left:auto}.divider{height:20px;width:1px;background:var(--line);margin:0 7px}
+button{font:inherit;font-size:13px;font-weight:600;border:1px solid transparent;background:transparent;color:var(--ink);padding:6px 12px;border-radius:7px;cursor:pointer;min-height:34px}
+button:hover{background:#eaf1ff;color:#1e50b5}button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}button:disabled{color:#6b7688;cursor:default;opacity:.7;background:transparent}#zoom-reset{font-variant-numeric:tabular-nums;min-width:61px}
+main{min-height:calc(100vh - 56px);display:grid;place-items:center;padding:40px}.status-content{max-width:540px;text-align:center}.app-icon{border-radius:17px}h1{font-size:27px;line-height:1.35;margin:24px 0 12px;letter-spacing:-.02em}p{margin:0;color:var(--muted);max-width:65ch}.actions{display:flex;justify-content:center;gap:12px;margin:28px 0}.actions button{border-color:var(--line);background:var(--white);padding:10px 20px;font-size:15px}.actions .primary{background:var(--brand);border-color:var(--brand);color:var(--white)}.actions .primary:hover{background:#2052b8}.footnote{font-size:13px;margin-top:32px}[hidden]{display:none!important}
+@media(max-width:850px){.toolbar{gap:12px;padding:0 12px}.connection{display:none}nav{gap:0}button{padding:6px 9px}}

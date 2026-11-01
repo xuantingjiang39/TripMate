@@ -1,0 +1,68 @@
+{
+  "expo": {
+    "name": "旅伴 TripMate",
+    "slug": "tripmate",
+    "version": "1.1.4",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "scheme": "tripmate",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tripmate.travel",
+      "buildNumber": "15",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "TripMate 会在你开启实时行程时询问位置权限，用于判断当前步骤并计算前往下一站的路线。"
+      }
+    },
+    "android": {
+      "package": "com.tripmate.travel",
+      "versionCode": 15,
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "blockedPermissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ],
+      "adaptiveIcon": {
+        "backgroundColor": "#2459D3",
+        "foregroundImage": "./assets/android-icon-foreground.png"
+      },
+      "predictiveBackGestureEnabled": true
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "TripMate 会在你开启实时行程时询问位置权限，用于判断当前步骤并计算前往下一站的路线。"
+        }
+      ],
+      [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true,
+          "faceIDPermission": "允许 TripMate 使用面容 ID 保护你的登录信息。"
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash.png",
+          "imageWidth": 220,
+          "resizeMode": "contain",
+          "backgroundColor": "#F5F7FB",
+          "dark": {
+            "backgroundColor": "#0D1524"
+          }
+        }
+      ],
+      "expo-font"
+    ],
+    "extra": {
+      "apiBaseUrl": "https://111.230.133.155"
+    }
+  }
+}

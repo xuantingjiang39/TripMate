@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-src 'none'">
+  <title>旅伴 TripMate</title>
+  <link rel="stylesheet" href="shell.css">
+</head>
+<body>
+  <header class="toolbar">
+    <div class="brand"><img src="icon.png" width="28" height="28" alt=""><span>旅伴 <b>TripMate</b></span></div>
+    <div class="connection" role="status"><span class="dot"></span><span id="connection-text">正在连接</span></div>
+    <nav aria-label="桌面工具">
+      <button id="reload" title="刷新（Ctrl+R）" disabled>刷新</button>
+      <button id="pdf" title="导出当前行程（Ctrl+P）" disabled>导出 PDF</button>
+      <span class="divider"></span>
+      <button id="zoom-out" aria-label="缩小文字" title="缩小">−</button>
+      <button id="zoom-reset" title="恢复默认字号">100%</button>
+      <button id="zoom-in" aria-label="放大文字" title="放大">＋</button>
+    </nav>
+  </header>
+  <main id="status-panel" aria-live="polite">
+    <div class="status-content">
+      <img class="app-icon" src="icon.png" width="76" height="76" alt="TripMate">
+      <h1 id="status-title">正在打开旅行工作台</h1>
+      <p id="status-message">正在连接 TripMate，你的旅行安排即将就绪。</p>
+      <div class="actions" id="recovery" hidden>
+        <button class="primary" id="retry">重新连接</button>
+        <button id="browser">用浏览器打开</button>
+      </div>
+      <p class="footnote" id="footnote">使用现有 TripMate 账号登录，即可查看已同步的行程。</p>
+    </div>
+  </main>
+  <script src="shell.js"></script>
+</body>
+</html>
