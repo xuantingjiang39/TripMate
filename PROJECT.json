@@ -30,7 +30,7 @@
       "version": "v55-download-page",
       "release": 55,
       "installer": "TripMate-server-v55-downloads.zip",
-      "lastObservedVersion": "v43-real-map-navigation",
+      "lastObservedVersion": "v55-download-page",
       "deployment": "manual-only"
     }
   }
