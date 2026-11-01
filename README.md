@@ -4,7 +4,7 @@
 
 本文件更新于 2026-11-01。此前版本保留原路径，未为整理项目移动或删除文件。
 
-GitHub：[`xuantingjiang39/TripMate`](https://github.com/xuantingjiang39/TripMate)（私有）。主分支为 `main`，当前安装包在 [v54 Releases](https://github.com/xuantingjiang39/TripMate/releases/tag/v54)。
+GitHub：[`xuantingjiang39/TripMate`](https://github.com/xuantingjiang39/TripMate)（公开）。主分支为 `main`，当前安装包在 [v54 Releases](https://github.com/xuantingjiang39/TripMate/releases/tag/v54)。
 
 ## 从哪里继续开发
 
@@ -26,7 +26,7 @@ Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-to
 - [Android APK 1.1.4](https://github.com/xuantingjiang39/TripMate/releases/download/v54/TripMate-v52-android-v1.1.4.apk)
 - [Android 安装包与说明](https://github.com/xuantingjiang39/TripMate/releases/download/v54/TripMate-v52-android-v1.1.4-sync-protection.zip)
 
-仓库默认私有，下载需要登录有访问权限的 GitHub 账号。上述文件在本地根目录也保留原文件名。
+源码和安装包均可免登录访问。上述文件在本地根目录也保留原文件名。
 
 Windows 已安装位置：`C:\Users\Administrator\AppData\Local\Programs\TripMate`。
 

@@ -5,7 +5,7 @@
   "root": "C:/codex/TripMate",
   "repository": {
     "url": "https://github.com/xuantingjiang39/TripMate",
-    "visibility": "private",
+    "visibility": "public",
     "defaultBranch": "main",
     "releaseTag": "v54"
   },
