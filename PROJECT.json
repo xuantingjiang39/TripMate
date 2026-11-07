@@ -7,7 +7,7 @@
     "url": "https://github.com/xuantingjiang39/TripMate",
     "visibility": "public",
     "defaultBranch": "main",
-    "releaseTag": "v59"
+    "releaseTag": "v60"
   },
   "components": {
     "windows": {
@@ -26,23 +26,24 @@
       "androidBuildWorkspace": "C:/tmb"
     },
     "overseas": {
-      "source": "TripMate-overseas-v59",
-      "release": 59,
+      "source": "TripMate-overseas-v60",
+      "release": 60,
       "siteProjectId": "appgprj_6ab509a4cee88191b6454e19cea6d795",
       "url": "https://tripmate-travel-planner.xuantingjiang39.chatgpt.site",
-      "savedVersion": 20,
-      "sourceCommit": "880f8e774fc528d1f3c9870ab64d90ea648a0456",
-      "deploymentId": "appgdep_6aeeff28dd14819185ae1ae6528972f1",
+      "savedVersion": 21,
+      "sourceCommit": "210679a902eb333ce4adff33a55ab0e2898e39e1",
+      "deploymentId": "appgdep_6aef384899248191bd3e5c9af0cf5399",
       "deploymentStatus": "succeeded"
     },
     "server": {
-      "source": "guest-v59",
-      "version": "v59-settings-languages",
-      "release": 59,
-      "installer": "TripMate-server-v59-settings.zip",
-      "updateArchive": "TripMate-server-v59-update.zip",
-      "lastObservedVersion": "v55-download-page",
-      "deployment": "manual-only"
+      "source": "guest-v60",
+      "version": "v60-regional-sync",
+      "release": 60,
+      "installer": "TripMate-server-v60-regional-sync.zip",
+      "updateArchive": "TripMate-server-v60-update.zip",
+      "lastObservedVersion": "v59-settings-languages",
+      "deployment": "manual-only",
+      "lastObservedVia": "user-install-log"
     }
   }
 }

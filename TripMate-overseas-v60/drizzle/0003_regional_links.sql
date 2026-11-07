@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS regional_links (
+  user_id TEXT PRIMARY KEY NOT NULL,
+  token TEXT NOT NULL,
+  status TEXT NOT NULL,
+  payload TEXT NOT NULL DEFAULT '{}'
+);
+CREATE TABLE IF NOT EXISTS regional_archives (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id TEXT NOT NULL,
+  data TEXT NOT NULL,
+  created_at TEXT NOT NULL
+);

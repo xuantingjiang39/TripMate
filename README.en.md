@@ -58,3 +58,6 @@ Source is publicly available; a project-wide license has not been selected. Thir
 
 ## v59 settings
 Visible China/global switch and browser-local language, text size, and reduced-motion settings. 44 locales cover settings and basic buttons; broader Chinese/English/Japanese page text is retained. Other text falls back to English/original; generated trips and accounts are not moved or translated. China server deployment remains manual. Android v58 and Windows v54 binaries are unchanged.
+
+## v60 linked travel records
+Both sites retain separate logins and credit ledgers. Explicitly link using a single-use China-site code, review the merge and backups, then confirm. Travel records use the China account as the canonical store. The browser uses an exact-origin CORS capability without cross-site cookies/passwords; no Worker raw-IP fetch. Conflicts and offline edits are preserved. China installation and actual account linking are manual. No new APK. See docs/release-v60-verification.md for local SQLite/HTTP/browser verification and production limits.

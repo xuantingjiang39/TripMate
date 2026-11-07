@@ -1,0 +1,46 @@
+    const cloudVersionKey='tripmate.v1.cloudVersion',dirtyKey='tripmate.v1.syncDirty';
+    let syncVersion=null;
+    function renderCloudState(){applyLargeMode(Boolean(readStore(storeKeys.largeMode,false)));restoreDraftPlan();renderSavedTrips();renderOrders();renderReminders();renderExpenses();renderPacking();loadEmergency();loadPreferences();renderTodayAssistant();renderToolRoutes()}
+    function markLocalDirty(){if(currentAccount)localStorage.setItem(dirtyKey,currentAccount.id);}
+    const isDirty=()=>Boolean(currentAccount&&localStorage.getItem(dirtyKey)===currentAccount.id);
+    async function travelSyncFetch(url,options={}){
+      const route=await fetch(url,options);if(!route.ok)return route;
+      const control=await route.clone().json();if(!control.clientBridge)return route;
+      if(control.origin!=='https://111.230.133.155')throw Error('共享地址不正确，已停止同步。');
+      const saving=options.method==='PUT',body=saving?JSON.parse(options.body):null;
+      let response;try{response=await fetch('https://111.230.133.155/api/bridge/state',{method:saving?'PUT':'GET',credentials:'omit',redirect:'error',referrerPolicy:'no-referrer',cache:'no-store',signal:AbortSignal.timeout(20000),headers:{'content-type':'application/json','x-tripmate-sync-token':control.token},...(saving?{body:JSON.stringify({state:body.data,stateVersion:body.stateVersion})}:{})});}catch{throw Error('暂时连接不到国内共享主记录；本机修改保留。');}
+      if(!response.ok)return response;const result=await response.json();
+      return new Response(JSON.stringify({data:result.state,stateVersion:result.stateVersion,updatedAt:new Date().toISOString(),shared:true}),{headers:{'content-type':'application/json'}});
+    }
+    function setVersion(value){syncVersion=value;localStorage.setItem(cloudVersionKey,JSON.stringify(value));}
+    async function pushCloudState(){
+      if(syncBusy||!currentAccount||syncVersion===null)return;
+      const owner=currentAccount.id,snapshot=collectCloudState(),serialized=JSON.stringify(snapshot);syncBusy=true;setCloudStatus('正在同步','busy');
+      try{
+        const response=await travelSyncFetch('/api/sync',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({data:snapshot,stateVersion:syncVersion})});
+        const result=await response.json();if(!response.ok)throw new Error(result.error||'同步失败');if(currentAccount?.id!==owner)return;
+        setVersion(result.stateVersion);localStorage.setItem(syncMetaKey,result.updatedAt||new Date().toISOString());
+        if(JSON.stringify(collectCloudState())===serialized){localStorage.removeItem(dirtyKey);setCloudStatus('已同步','ok');}
+        else{markLocalDirty();syncTimer=setTimeout(pushCloudState,700);}
+      }catch(error){if(currentAccount?.id===owner){markLocalDirty();setCloudStatus((error.message||'同步失败')+'；本机修改保留，可在共享设置导出本机备份。','error');}}
+      finally{syncBusy=false;}
+    }
+    async function syncFromCloud(){
+      if(syncBusy||!currentAccount)return;
+      const owner=currentAccount.id,before=JSON.stringify(collectCloudState());syncBusy=true;setCloudStatus('正在同步','busy');
+      try{
+        const response=await travelSyncFetch('/api/sync',{headers:{accept:'application/json'}}),result=await response.json();
+        if(!response.ok)throw new Error(result.error||'同步失败');if(currentAccount?.id!==owner)return;
+        const cloudData=result.data&&typeof result.data==='object'?result.data:{},hasCloud=Object.keys(cloudData).length>0,localData=collectCloudState(),hasLocal=Object.keys(localData).length>0;
+        if(isDirty()||before!==JSON.stringify(localData)){
+          let previous;try{previous=JSON.parse(localStorage.getItem(cloudVersionKey));}catch{}
+          if(previous!==result.stateVersion){syncReady=false;renderCloudState();setCloudStatus('云端与本机都有修改；本机保留，请先导出备份再处理冲突。','error');return;}
+          setVersion(result.stateVersion);syncReady=true;syncBusy=false;await pushCloudState();return;
+        }
+        setVersion(result.stateVersion);
+        if(hasCloud){Object.values(storeKeys).forEach(key=>{if(Object.hasOwn(cloudData,key))localStorage.setItem(key,JSON.stringify(cloudData[key]));else localStorage.removeItem(key)});localStorage.setItem(syncMetaKey,result.updatedAt||new Date().toISOString());renderCloudState();syncReady=true;setCloudStatus('已同步','ok');}
+        else{syncReady=true;if(hasLocal){renderCloudState();markLocalDirty();syncBusy=false;await pushCloudState();return;}setCloudStatus('云端已连接','ok');}
+      }catch(error){syncReady=false;renderCloudState();setCloudStatus((error.message||'离线使用')+'；本机记录保留。','error');}
+      finally{syncBusy=false;}
+    }
+    window.addEventListener('online',()=>{if(currentAccount)syncFromCloud();});

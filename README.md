@@ -68,8 +68,8 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 | --- | --- | --- | --- |
 | Windows | [TripMate-desktop-v54](TripMate-desktop-v54/README.md) | 1.0.1 / v54 | Electron 联网桌面客户端，路线与日出新图标 |
 | Android / 原生移动端 | [TripMate-native-v58](TripMate-native-v58/README-原生App.md) | 1.1.5 / v58 | 简洁今日页、按日交通、说明按需展开，保留同步保护 |
-| 海外站 | `TripMate-overseas-v59/` | Sites v20 / v59 | 保留 D1 账号与公开访问，增加国内 / 海外及语言切换 |
-| 服务器与网页 | `guest-v59/` | v59-settings-languages | 明显的站点切换、44 种基础界面语言、字号与减少动画；国内待手动部署 |
+| 海外站 | `TripMate-overseas-v60/` | Sites v21 / v60 | 保留 D1 账号与公开访问，增加国内 / 海外及语言切换 |
+| 服务器与网页 | `guest-v60/` | v60-regional-sync | 一次性码连接、合并预览、备份、共享主记录；国内待手动部署 |
 
 Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-toolchain/`。不要把 Windows 桌面版覆盖到 Android 源码目录。
 
@@ -81,7 +81,7 @@ Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-to
 - [v58 国内服务器更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v58/TripMate-server-v58-update.zip)，复用已有安装文件，仅下载缺少的文件；本机还保留含全部安装文件的完整包。见 [安装与验证说明](guest-v59/v58-国内海外与语言说明.md)。
 - [海外站](https://tripmate-travel-planner.xuantingjiang39.chatgpt.site/download) 保留现有账号系统，通过本站路径提供海外下载；国内 / 海外站账号独立。
 
-v59 国际站 Sites 版本 20 已发布，国内站需手动更新。验证范围见 [v59 交付核验](docs/release-v59-verification.md)。
+v60 国际站 Sites 版本 21 已发布，国内站需手动更新后才能连接共享记录。验证范围见 [v60 交付核验](docs/release-v60-verification.md)。
 
 - [v57 服务器直下完整更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v57/TripMate-server-v57-direct-downloads.zip)：包含安卓 APK、Windows 安装包及服务器源码。部署后下载按钮使用本站 `/downloads/` 链接，GitHub 仅作备用。详见 [v57 安装说明](guest-v57/v57-服务器直接下载说明.md)。
 
@@ -147,3 +147,11 @@ Windows 流程检查使用隔离的临时用户目录，真实接口只检查匿
 [国际站](https://tripmate-travel-planner.xuantingjiang39.chatgpt.site) · [v59 国内站更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v59/TripMate-server-v59-update.zip)
 
 国内服务器由用户手动更新；Windows 和 Android 安装文件继续使用 v54/v58，本次没有新 APK。
+
+## v60 · 合并与共享记录
+
+网页设置新增“合并 / 共享记录”。两站分别登录，用国内一次性码授权，先预览和备份，再确认合并。连接后国际站使用国内共享主记录；密码、角色、AI 额度及账本独立。只有编号和内容都一致的记录去重；同价不同单号的订单完整保留。
+
+[国际站合并入口](https://tripmate-travel-planner.xuantingjiang39.chatgpt.site/account-link) · [v60 国内更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v60/TripMate-server-v60-update.zip) · [安装与使用](guest-v60/v60-cross-site-sync.md) · [验证范围](docs/release-v60-verification.md)
+
+国内必须先安装 v60，之后由本人连接和确认。尚未改动任何真实账号的旅行记录；没有新 APK。
