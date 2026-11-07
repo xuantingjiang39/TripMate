@@ -61,3 +61,6 @@ Visible China/global switch and browser-local language, text size, and reduced-m
 
 ## v60 linked travel records
 Both sites retain separate logins and credit ledgers. Explicitly link using a single-use China-site code, review the merge and backups, then confirm. Travel records use the China account as the canonical store. The browser uses an exact-origin CORS capability without cross-site cookies/passwords; no Worker raw-IP fetch. Conflicts and offline edits are preserved. China installation and actual account linking are manual. No new APK. See docs/release-v60-verification.md for local SQLite/HTTP/browser verification and production limits.
+
+## v61 unified entry points
+Both addresses serve byte-identical primary HTML and use the original China account, password, trips, bookings, credits and APIs. No pairing or file transfer for normal use. The international frontend remains globally hosted; business APIs currently share the China backend, not a separately provisioned overseas business server. Old independent international data remains in authenticated recovery routes. All packaged shell scripts are checked for LF/no BOM; the v60 CRLF packaging fault is fixed. See docs/release-v61-verification.md.
