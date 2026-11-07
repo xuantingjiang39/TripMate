@@ -1,0 +1,117 @@
+  // Settings are local to this browser; no account, itinerary or credential leaves this site.
+  const readSetting=(key,fallback)=>{try{return localStorage.getItem('tripmate.ui.'+key)||fallback;}catch{return fallback;}};
+  const saveSetting=(key,value)=>{try{localStorage.setItem('tripmate.ui.'+key,value);}catch{}};
+  let textSize=readSetting('textSize','standard');
+  if(!['standard','large'].includes(textSize))textSize='standard';
+  let reduceMotion=readSetting('reduceMotion','system');
+  if(!['system','true','false'].includes(reduceMotion))reduceMotion='system';
+  const copy=()=>localeData[language];
+  const isChinese=()=>language.startsWith('zh');
+  const info=(zh,en)=>isChinese()?zh:en;
+  const coreKeys={'设置':1,'关闭':2,'国内站':3,'海外站':4,'国际站':4,'界面语言':7,'语言':7,'软件下载':12,'登录':13,'注册':14,'保存':15};
+  const originalTranslate=translate;
+  const localize=text=>{
+    const value=text.trim(),key=coreKeys[value];
+    return key===undefined?originalTranslate(text):text.slice(0,text.indexOf(value))+copy()[key]+text.slice(text.indexOf(value)+value.length);
+  };
+  const bar = document.createElement('nav');
+  bar.dataset.noTranslate='true';bar.className='tripmate-region-bar';
+  bar.innerHTML='<a class="region-download" href="/download">软件下载</a><span id="tripmate-current-region"></span><a id="tripmate-region-switch" class="region-switch"></a><button id="tripmate-settings-toggle" type="button" aria-expanded="false" aria-controls="tripmate-settings-panel"></button>';
+  const panel=document.createElement('section');
+  panel.id='tripmate-settings-panel';panel.dataset.noTranslate='true';panel.hidden=true;
+  panel.setAttribute('aria-labelledby','tripmate-settings-title');
+  panel.innerHTML='<header><h2 id="tripmate-settings-title"></h2><button type="button" id="tripmate-settings-close"></button></header><div class="settings-body"><label for="tripmate-language" class="setting-label" id="tripmate-language-label"></label><select id="tripmate-language"></select><p id="tripmate-language-note" class="setting-help"></p><div class="setting-row"><label for="tripmate-text-size" id="tripmate-text-label"></label><select id="tripmate-text-size"><option value="standard"></option><option value="large"></option></select></div><label class="setting-row motion-row"><span id="tripmate-motion-label"></span><input id="tripmate-reduce-motion" type="checkbox"></label><p id="tripmate-setting-note" class="setting-help"></p><div class="setting-site"><strong id="tripmate-site-label"></strong><p id="tripmate-account-note" class="setting-help"></p><a id="tripmate-settings-region" class="region-switch"></a></div></div>';
+  const style=document.createElement('style');
+  style.textContent=`
+  body{padding-top:var(--tripmate-bar-height,64px)!important}
+  .tripmate-region-bar,#tripmate-settings-panel{font:15px/1.5 "Segoe UI","Microsoft YaHei",sans-serif;color:#172846;box-sizing:border-box;text-align:start}
+  .tripmate-region-bar{position:fixed;inset:0 0 auto;z-index:2147483000;min-height:64px;background:#fff;border-bottom:1px solid #dce4f0;display:flex;align-items:center;gap:12px;padding:8px max(16px,calc((100vw - 1200px)/2))}
+  .tripmate-region-bar a,.tripmate-region-bar button,#tripmate-settings-panel button,#tripmate-settings-panel select,#tripmate-settings-panel .region-switch{box-sizing:border-box;min-height:44px;font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border-radius:8px;line-height:1.4;white-space:normal}
+  .tripmate-region-bar .region-download{color:#2459d3;font-weight:650;margin-inline-end:auto;flex-shrink:0}
+  #tripmate-current-region{font-size:13px;color:#52627a;max-width:170px}
+  .tripmate-region-bar .region-switch,#tripmate-settings-panel .region-switch{padding:8px 12px;background:#eaf0ff;color:#204cad;font-weight:650}
+  .tripmate-region-bar button,#tripmate-settings-panel button{padding:8px 12px;background:#fff;border:1px solid #c8d5e9;color:#172846;cursor:pointer}
+  .tripmate-region-bar a:hover,.tripmate-region-bar button:hover,#tripmate-settings-panel button:hover{background:#eaf0ff}
+  .tripmate-region-bar :focus-visible,#tripmate-settings-panel :focus-visible{outline:3px solid #ad570a;outline-offset:2px}
+  #tripmate-settings-panel{position:fixed;z-index:2147483001;inset-block-start:calc(var(--tripmate-bar-height,64px) + 8px);inset-inline-end:max(12px,calc((100vw - 1200px)/2));width:min(440px,calc(100vw - 24px));max-height:calc(100dvh - var(--tripmate-bar-height,64px) - 24px);overflow:auto;overscroll-behavior:contain;background:#fff;border:1px solid #c8d5e9;border-radius:12px;box-shadow:0 12px 32px #17284626}
+  #tripmate-settings-panel[hidden]{display:none!important}
+  #tripmate-settings-panel header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid #dce4f0}
+  #tripmate-settings-panel h2{margin:0;font-size:22px;line-height:1.3}
+  .settings-body{padding:20px}
+  #tripmate-settings-panel select{background:#fff;border:1px solid #aebfd8;color:#172846;padding:8px 10px;max-width:100%;font-size:16px}
+  #tripmate-language{width:100%;margin-top:8px}
+  .setting-label{font-weight:650}
+  .setting-help{color:#52627a;font-size:14px;line-height:1.65;margin:10px 0 18px}
+  .setting-row{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:56px;margin:8px 0}
+  .setting-row select{min-width:110px;max-width:55%!important}
+  .motion-row{cursor:pointer}
+  #tripmate-reduce-motion{width:23px;height:23px;min-width:23px;accent-color:#285de0;margin:0}
+  .setting-site{border-top:1px solid #dce4f0;margin-top:22px;padding-top:20px}
+  .tripmate-large-text :is(p,label,input,textarea,select,button,li){font-size:max(1em,18px)!important}
+  .tripmate-reduce-motion *,.tripmate-reduce-motion *::before,.tripmate-reduce-motion *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  @media(max-width:560px){.tripmate-region-bar{gap:7px;padding:8px 12px;font-size:13px}.tripmate-region-bar .region-switch{max-width:49vw;padding:8px 10px}#tripmate-current-region{display:none}#tripmate-settings-toggle{max-width:28vw;padding:8px}.auth-gate{padding-top:calc(var(--tripmate-bar-height,64px) + 18px)!important}}
+  @media print{.tripmate-region-bar,#tripmate-settings-panel{display:none!important}body{padding-top:0!important}}
+  `;
+  document.head.append(style);document.body.prepend(bar);document.body.append(panel);
+  const measureBar=()=>document.documentElement.style.setProperty('--tripmate-bar-height',bar.getBoundingClientRect().height+'px');
+  if(typeof ResizeObserver!=='undefined')new ResizeObserver(measureBar).observe(bar);
+  else window.addEventListener('resize',measureBar);
+  const languageSelect=panel.querySelector('#tripmate-language');
+  for(const code of languages){const option=document.createElement('option');option.value=code;option.lang=code;option.textContent=localeData[code][0];languageSelect.append(option);}
+  const toggle=bar.querySelector('button'),close=panel.querySelector('button'),textSelect=panel.querySelector('#tripmate-text-size'),motion=panel.querySelector('#tripmate-reduce-motion');
+  const motionQuery=matchMedia('(prefers-reduced-motion: reduce)');
+  const applyAppearance=()=>{
+    document.documentElement.classList.toggle('tripmate-large-text',textSize==='large');
+    const reduced=reduceMotion==='system'?motionQuery.matches:reduceMotion==='true';
+    document.documentElement.classList.toggle('tripmate-reduce-motion',reduced);motion.checked=reduced;textSelect.value=textSize;
+  };
+  if(motionQuery.addEventListener)motionQuery.addEventListener('change',applyAppearance);
+  const regionUrl=()=>{const target=new URL(location.pathname.startsWith('/download')?'/download':'/',hosts[region==='domestic'?'overseas':'domestic']);target.searchParams.set('lang',language);target.searchParams.set('textSize',textSize);target.searchParams.set('motion',reduceMotion);return target.href;};
+  // Transfer only these three explicit UI preferences, never the source query string.
+  const incoming=new URL(location.href).searchParams;
+  if(['standard','large'].includes(incoming.get('textSize')))textSize=incoming.get('textSize');
+  if(['system','true','false'].includes(incoming.get('motion')))reduceMotion=incoming.get('motion');
+  const repaint = () => {
+    const labels=copy();document.documentElement.lang=language;
+    document.documentElement.dir=['ar','he','fa','ur'].includes(language)?'rtl':'ltr';
+    bar.setAttribute('aria-label',info('站点与设置','Site and settings'));
+    bar.querySelector('.region-download').textContent=labels[12];bar.querySelector('.region-download').href='/download?lang='+encodeURIComponent(language);
+    bar.querySelector('#tripmate-current-region').textContent=labels[region==='domestic'?3:4];
+    for(const link of [bar.querySelector('#tripmate-region-switch'),panel.querySelector('#tripmate-settings-region')]){link.textContent=labels[region==='domestic'?5:6];link.href=regionUrl();}
+    toggle.textContent=labels[1];close.textContent=labels[2];panel.querySelector('h2').textContent=labels[1];
+    panel.querySelector('#tripmate-language-label').textContent=labels[7]+' / Language';languageSelect.value=language;
+    panel.querySelector('#tripmate-text-label').textContent=labels[8];textSelect.options[0].textContent=labels[9];textSelect.options[1].textContent=labels[10];
+    panel.querySelector('#tripmate-motion-label').textContent=labels[11];
+    panel.querySelector('#tripmate-language-note').textContent=info('44 种语言，覆盖设置与基础按钮；中英日覆盖更多页面文字。未覆盖内容显示英文或原文，已有攻略不自动翻译。','44 languages for settings and basic buttons. Chinese, English and Japanese cover more text. Other text may remain in English or its original language; existing trips stay unchanged.');
+    panel.querySelector('#tripmate-setting-note').textContent=info('选择后立即生效，并保存在当前浏览器。字号和动画偏好会随站点切换带过去。','Changes apply immediately and stay in this browser. Text and motion preferences follow the site switch.');
+    panel.querySelector('#tripmate-site-label').textContent=labels[region==='domestic'?3:4];
+    panel.querySelector('#tripmate-account-note').textContent=info('国内与国际站的账号、行程独立。切换只改变访问和下载线路，不迁移账号。','The two sites have separate accounts and itineraries. Switching changes the site and download route; it does not migrate your account.');
+    document.querySelectorAll('select:not(#tripmate-language):not(#tripmate-text-size) option:not([value])').forEach(option=>option.setAttribute('value',option.textContent));
+    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;
+    while((node=walker.nextNode())){
+      if(!node.parentElement||node.parentElement.closest(ignored))continue;
+      let record=records.get(node);
+      if(!record||node.nodeValue!==record.last)record={original:node.nodeValue,last:node.nodeValue};
+      const next=localize(record.original);if(node.nodeValue!==next)node.nodeValue=next;
+      record.last=next;records.set(node,record);
+    }
+    document.querySelectorAll('[placeholder],[aria-label]').forEach(element=>{
+      if(element.closest(ignored))return;
+      let originals=attributeRecords.get(element);if(!originals){originals={};attributeRecords.set(element,originals);}
+      for(const key of ['placeholder','aria-label'])if(element.hasAttribute(key)){if(!(key in originals))originals[key]=element.getAttribute(key);const next=localize(originals[key]);if(element.getAttribute(key)!==next)element.setAttribute(key,next);}
+    });
+    applyAppearance();
+    measureBar();
+  };
+  const setOpen=open=>{panel.hidden=!open;toggle.setAttribute('aria-expanded',String(open));if(open)languageSelect.focus();else toggle.focus();};
+  toggle.onclick=()=>setOpen(panel.hidden);close.onclick=()=>setOpen(false);
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!panel.hidden){event.preventDefault();setOpen(false);}});
+  document.addEventListener('click',event=>{if(!panel.hidden&&!panel.contains(event.target)&&!toggle.contains(event.target)){panel.hidden=true;toggle.setAttribute('aria-expanded','false');}});
+  const persist=()=>{saveSetting('language',language);saveSetting('textSize',textSize);saveSetting('reduceMotion',reduceMotion);const url=new URL(location.href);url.searchParams.set('lang',language);url.searchParams.set('textSize',textSize);url.searchParams.set('motion',reduceMotion);history.replaceState(history.state,'',url);repaint();};
+  languageSelect.onchange=()=>{language=languageSelect.value;persist();};
+  textSelect.onchange=()=>{textSize=textSelect.value;persist();};
+  motion.onchange=()=>{reduceMotion=String(motion.checked);persist();};
+  let queued=false;
+  new MutationObserver(changes=>{if(changes.every(change=>bar.contains(change.target)||panel.contains(change.target)))return;if(!queued){queued=true;queueMicrotask(()=>{queued=false;repaint();});}}).observe(document.body,{childList:true,characterData:true,subtree:true});
+  saveSetting('language',language);saveSetting('textSize',textSize);saveSetting('reduceMotion',reduceMotion);
+  repaint();

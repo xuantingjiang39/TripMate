@@ -1,0 +1,9 @@
+{
+  "name": "tripmate-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node --check src/worker.mjs && node --check dist/server/index.js"
+  }
+}

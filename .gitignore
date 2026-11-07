@@ -15,6 +15,9 @@
 !/tools/capture-promo.cjs
 !/tools/verify-downloads.cjs
 !/tools/verify-regional-sites.cjs
+!/tools/verify-v59-settings.cjs
+!/tools/build-v59-settings.cjs
+!/tools/v59-settings-ui.txt
 
 !/TripMate-desktop-v54/
 /TripMate-desktop-v54/*
@@ -115,6 +118,28 @@
 !/TripMate-overseas-v58/.openai/
 /TripMate-overseas-v58/.openai/*
 !/TripMate-overseas-v58/.openai/hosting.json
+
+!/guest-v59/
+/guest-v59/*
+!/guest-v59/*.mjs
+!/guest-v59/*.js
+!/guest-v59/*.sh
+!/guest-v59/*.html
+!/guest-v59/*.md
+!/guest-v59/*.txt
+!/guest-v59/tripmate-icon.png
+
+!/TripMate-overseas-v59/
+/TripMate-overseas-v59/*
+!/TripMate-overseas-v59/src/
+!/TripMate-overseas-v59/db/
+!/TripMate-overseas-v59/drizzle/
+!/TripMate-overseas-v59/build.mjs
+!/TripMate-overseas-v59/drizzle.config.ts
+!/TripMate-overseas-v59/package.json
+!/TripMate-overseas-v59/.openai/
+/TripMate-overseas-v59/.openai/*
+!/TripMate-overseas-v59/.openai/hosting.json
 
 # Defense in depth inside the allowlisted source directories.
 **/node_modules/

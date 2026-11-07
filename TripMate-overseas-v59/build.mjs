@@ -1,0 +1,12 @@
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+
+const html = await readFile(new URL("./src/index.html", import.meta.url), "utf8");
+const template = await readFile(new URL("./src/worker.mjs", import.meta.url), "utf8");
+const downloadHtml = await readFile(new URL('./src/download.html', import.meta.url), 'utf8');
+const regionalScript = await readFile(new URL('./src/tripmate-regions.js', import.meta.url), 'utf8');
+const icon = (await readFile(new URL('./src/tripmate-icon.png', import.meta.url))).toString('base64');
+const marker = 'const PAGE_HTML = "__TRIPMATE_HTML__";';
+if (!template.includes(marker)) throw new Error("Worker HTML marker is missing");
+const worker = template.replace(marker, `const PAGE_HTML = ${JSON.stringify(html)};\nconst DOWNLOAD_HTML = ${JSON.stringify(downloadHtml)};\nconst REGIONAL_SCRIPT = ${JSON.stringify(regionalScript)};\nconst ICON_BASE64 = ${JSON.stringify(icon)};`);
+await mkdir(new URL("./dist/server/", import.meta.url), { recursive: true });
+await writeFile(new URL("./dist/server/index.js", import.meta.url), worker, "utf8");

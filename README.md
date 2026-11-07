@@ -68,8 +68,8 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 | --- | --- | --- | --- |
 | Windows | [TripMate-desktop-v54](TripMate-desktop-v54/README.md) | 1.0.1 / v54 | Electron 联网桌面客户端，路线与日出新图标 |
 | Android / 原生移动端 | [TripMate-native-v58](TripMate-native-v58/README-原生App.md) | 1.1.5 / v58 | 简洁今日页、按日交通、说明按需展开，保留同步保护 |
-| 海外站 | `TripMate-overseas-v58/` | Sites v19 / v58 | 保留 D1 账号与公开访问，增加国内 / 海外及语言切换 |
-| 服务器与网页 | `guest-v58/` | v58-regional-language | 国内 / 海外切换、中英日核心界面；国内待手动部署 |
+| 海外站 | `TripMate-overseas-v59/` | Sites v20 / v59 | 保留 D1 账号与公开访问，增加国内 / 海外及语言切换 |
+| 服务器与网页 | `guest-v59/` | v59-settings-languages | 明显的站点切换、44 种基础界面语言、字号与减少动画；国内待手动部署 |
 
 Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-toolchain/`。不要把 Windows 桌面版覆盖到 Android 源码目录。
 
@@ -78,10 +78,10 @@ Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-to
 ## 下载安装包
 
 - [安卓 v58 / 1.1.5 APK](https://github.com/xuantingjiang39/TripMate/releases/download/v58/TripMate-v58-android-v1.1.5.apk)：覆盖安装，保留原数据。
-- [v58 国内服务器更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v58/TripMate-server-v58-update.zip)，复用已有安装文件，仅下载缺少的文件；本机还保留含全部安装文件的完整包。见 [安装与验证说明](guest-v58/v58-国内海外与语言说明.md)。
+- [v58 国内服务器更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v58/TripMate-server-v58-update.zip)，复用已有安装文件，仅下载缺少的文件；本机还保留含全部安装文件的完整包。见 [安装与验证说明](guest-v59/v58-国内海外与语言说明.md)。
 - [海外站](https://tripmate-travel-planner.xuantingjiang39.chatgpt.site/download) 保留现有账号系统，通过本站路径提供海外下载；国内 / 海外站账号独立。
 
-v58 海外 Sites 版本 19 已发布，国内站仍需手动更新；命令行公网检查被 Cloudflare 1010 拦截，海外下载还需浏览器确认。完整范围见 [v58 交付核验](docs/release-v58-verification.md)。
+v59 国际站 Sites 版本 20 已发布，国内站需手动更新。验证范围见 [v59 交付核验](docs/release-v59-verification.md)。
 
 - [v57 服务器直下完整更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v57/TripMate-server-v57-direct-downloads.zip)：包含安卓 APK、Windows 安装包及服务器源码。部署后下载按钮使用本站 `/downloads/` 链接，GitHub 仅作备用。详见 [v57 安装说明](guest-v57/v57-服务器直接下载说明.md)。
 
@@ -139,3 +139,11 @@ Windows 流程检查使用隔离的临时用户目录，真实接口只检查匿
 仓库只提交当前源码和文档，根目录 .gitignore 明确排除历史产物、依赖、缓存和本地数据。新建版本目录后，应先更新白名单并检查 `git diff --cached --stat`，再提交上传。不要强制添加密钥、配置文件或用户数据库。
 
 安装包大文件通过 Releases 上传，不放进 Git 历史。上传 GitHub 不会自动更新线上 TripMate 服务。
+
+## v59 · 站点切换与设置
+
+国内/国际切换从下拉菜单改为顶部直接按钮。设置集中管理语言（44 种基础界面语言）、字号与减少动画，偏好保存在浏览器并随切站带过去。中英日覆盖更多页面文字；未覆盖部分为英文或原文，行程不自动翻译。两个站账号独立。
+
+[国际站](https://tripmate-travel-planner.xuantingjiang39.chatgpt.site) · [v59 国内站更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v59/TripMate-server-v59-update.zip)
+
+国内服务器由用户手动更新；Windows 和 Android 安装文件继续使用 v54/v58，本次没有新 APK。

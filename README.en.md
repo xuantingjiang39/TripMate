@@ -55,3 +55,6 @@ npm start
 The desktop client points to the existing HTTPS service. Backend keys, user databases, cookies, dependencies and local test data are not in this repository. See the component READMEs for server configuration and mobile development.
 
 Source is publicly available; a project-wide license has not been selected. Third-party components retain their respective licenses.
+
+## v59 settings
+Visible China/global switch and browser-local language, text size, and reduced-motion settings. 44 locales cover settings and basic buttons; broader Chinese/English/Japanese page text is retained. Other text falls back to English/original; generated trips and accounts are not moved or translated. China server deployment remains manual. Android v58 and Windows v54 binaries are unchanged.
