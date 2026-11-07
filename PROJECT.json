@@ -1,13 +1,13 @@
 {
   "name": "TripMate",
   "displayName": "旅伴 TripMate",
-  "updatedAt": "2026-11-01",
+  "updatedAt": "2026-11-07",
   "root": "C:/codex/TripMate",
   "repository": {
     "url": "https://github.com/xuantingjiang39/TripMate",
     "visibility": "public",
     "defaultBranch": "main",
-    "releaseTag": "v55"
+    "releaseTag": "v56"
   },
   "components": {
     "windows": {
@@ -26,10 +26,10 @@
       "androidBuildWorkspace": "C:/tmb"
     },
     "server": {
-      "source": "guest-v55",
-      "version": "v55-download-page",
-      "release": 55,
-      "installer": "TripMate-server-v55-downloads.zip",
+      "source": "guest-v56",
+      "version": "v56-request-isolation",
+      "release": 56,
+      "installer": "TripMate-server-v56-request-isolation.zip",
       "lastObservedVersion": "v55-download-page",
       "deployment": "manual-only"
     }

@@ -27,7 +27,7 @@ This slideshow shows the real desktop UI with example data. It is not a recordin
 
 **Beta.** Downloads are free; AI generation uses the backend's configured model and credit policy. Guest preview is limited to one trial and the first day. Full itineraries require an account. The app interface is primarily Chinese.
 
-Windows 1.0.1 / v54 is an Electron client for the online workspace and requires a network connection. Android 1.1.4 / v52 uses React Native / Expo. The current Node.js server and web source are in `guest-v55/`, adding a public [download page](https://111.230.133.155/download) for both installers. The owner has manually deployed v55; the live health endpoint and download page have been verified. There is no published iOS installer.
+Windows 1.0.1 / v54 is an Electron client for the online workspace and requires a network connection. Android 1.1.4 / v52 uses React Native / Expo. The current Node.js server and web source are in `guest-v56/`, fixing service exits caused by malformed cookies and isolating unexpected request failures. This update awaits manual deployment; the live health endpoint was last verified as v55. The public [download page](https://111.230.133.155/download) offers both installers. There is no published iOS installer.
 
 Desktop startup, PDF export, reconnection and Android sync-protection scenarios have been checked. Some checks use mocked services. Real payments, hotel availability, GPS accuracy and broad device compatibility have not been comprehensively verified. The Windows installer is not commercially code-signed.
 

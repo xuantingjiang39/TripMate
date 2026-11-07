@@ -7,6 +7,7 @@ const os = require('node:os');
 const net = require('node:net');
 const {spawn} = require('node:child_process');
 const root = path.resolve(__dirname, '..');
+const source = require(path.join(root, 'PROJECT.json')).components.server;
 const {chromium} = require(path.join(root, 'TripMate-desktop-v54/node_modules/playwright-core'));
 async function main() {
   const data = await fs.mkdtemp(path.join(os.tmpdir(), 'tripmate-downloads-'));
@@ -15,7 +16,7 @@ async function main() {
   const port = probe.address().port;
   await new Promise(r => probe.close(r));
   const base = `http://127.0.0.1:${port}`;
-  const child = spawn(process.execPath, [path.join(root, 'guest-v55/tripmate-ai-server.mjs')], {env: {...process.env, PORT: String(port), TRIPMATE_DATA_DIR: data}, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe']});
+  const child = spawn(process.execPath, [path.join(root, source.source, 'tripmate-ai-server.mjs')], {env: {...process.env, PORT: String(port), TRIPMATE_DATA_DIR: data}, windowsHide: true, stdio: ['ignore', 'pipe', 'pipe']});
   let browser;
   try {
     await new Promise((resolve, reject) => {
@@ -46,7 +47,7 @@ async function main() {
     assert.equal((await fetch(base + '/download/config.json')).status, 404);
     assert.equal((await fetch(base + '/download', {method:'POST'})).status, 404);
     assert.deepEqual(await fs.readdir(data), [], 'Public routes must not create account databases');
-    assert.equal((await (await fetch(base+'/api/health')).json()).version, 'v55-download-page');
+    assert.equal((await (await fetch(base+'/api/health')).json()).version, source.version);
     browser = await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe', headless:true});
     const variants = [
       {name:'desktop',viewport:{width:1280,height:900},userAgent:'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/140.0.0.0',recommended:'windows'},
@@ -55,6 +56,7 @@ async function main() {
     ];
     for (const variant of variants) {
       const context = await browser.newContext({viewport:variant.viewport,userAgent:variant.userAgent});
+      await context.addCookies([{name:'legacy',value:'%',url:base}]);
       const page = await context.newPage();
       const errors=[];page.on('pageerror', e=>errors.push(e.message));
       await page.goto(base);
