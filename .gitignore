@@ -68,6 +68,15 @@
 !/guest-v56/*.txt
 !/guest-v56/tripmate-icon.png
 
+!/guest-v57/
+/guest-v57/*
+!/guest-v57/*.mjs
+!/guest-v57/*.sh
+!/guest-v57/*.html
+!/guest-v57/*.md
+!/guest-v57/*.txt
+!/guest-v57/tripmate-icon.png
+
 # Defense in depth inside the allowlisted source directories.
 **/node_modules/
 **/dist/

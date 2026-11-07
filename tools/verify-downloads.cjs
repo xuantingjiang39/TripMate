@@ -74,8 +74,12 @@ async function main() {
       for (const platform of ['android','windows']) {
         const link=downloadPage.locator(`#download-${platform}`);
         const href=await link.getAttribute('href');
-        assert.equal(new URL(href).host, 'github.com');
-        assert.match(new URL(href).pathname, /^\/xuantingjiang39\/TripMate\/releases\/download\/v54\//);
+        const target=new URL(href,base);
+        assert.equal(target.origin,base);
+        assert.match(target.pathname,/^\/downloads\/TripMate-v\d+-.+\.(apk|exe)$/);
+        const response=await fetch(target,{method:'HEAD'});
+        assert.equal(response.status,200);
+        assert.equal(response.headers.get('accept-ranges'),'bytes');
         assert((await link.boundingBox()).height>=44);
       }
       await downloadPage.locator('#download-android').focus();

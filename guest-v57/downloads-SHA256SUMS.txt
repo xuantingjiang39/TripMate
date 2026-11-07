@@ -1,0 +1,2 @@
+f6f317da8c480c19321b227a0cf738a6d0de413ab749cf23904694f19e984ade  downloads/TripMate-v52-android-v1.1.4.apk
+6a56e6d98b490e692d30b9dcba647e10542de06b485159f07be1948eda595178  downloads/TripMate-v54-Windows-1.0.1-Setup.exe

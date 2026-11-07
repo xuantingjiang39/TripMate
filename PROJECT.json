@@ -7,7 +7,7 @@
     "url": "https://github.com/xuantingjiang39/TripMate",
     "visibility": "public",
     "defaultBranch": "main",
-    "releaseTag": "v56"
+    "releaseTag": "v57"
   },
   "components": {
     "windows": {
@@ -26,10 +26,10 @@
       "androidBuildWorkspace": "C:/tmb"
     },
     "server": {
-      "source": "guest-v56",
-      "version": "v56-request-isolation",
-      "release": 56,
-      "installer": "TripMate-server-v56-request-isolation.zip",
+      "source": "guest-v57",
+      "version": "v57-direct-downloads",
+      "release": 57,
+      "installer": "TripMate-server-v57-direct-downloads.zip",
       "lastObservedVersion": "v55-download-page",
       "deployment": "manual-only"
     }

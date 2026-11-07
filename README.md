@@ -68,13 +68,15 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 | --- | --- | --- | --- |
 | Windows | [TripMate-desktop-v54](TripMate-desktop-v54/README.md) | 1.0.1 / v54 | Electron 联网桌面客户端，路线与日出新图标 |
 | Android / 原生移动端 | [TripMate-native-v52](TripMate-native-v52/README-原生App.md) | 1.1.4 / v52 | 同步响应与离线攻略保护 |
-| 服务器与网页 | `guest-v56/` | v56-request-isolation | 修复异常 Cookie 导致整个服务退出；v56 待手动部署，线上最后确认 v55 |
+| 服务器与网页 | `guest-v57/` | v57-direct-downloads | 安装包从本站流式下载，支持断点续传；待手动部署 |
 
 Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-toolchain/`。不要把 Windows 桌面版覆盖到 Android 源码目录。
 
 当前 Windows 版沿用服务器网页，因此原生 Android 的独立实现不会自动迁移到 Windows 客户端。
 
 ## 下载安装包
+
+- [v57 服务器直下完整更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v57/TripMate-server-v57-direct-downloads.zip)：包含安卓 APK、Windows 安装包及服务器源码。部署后下载按钮使用本站 `/downloads/` 链接，GitHub 仅作备用。详见 [v57 安装说明](guest-v57/v57-服务器直接下载说明.md)。
 
 - [v56 服务器稳定性修复包](https://github.com/xuantingjiang39/TripMate/releases/download/v56/TripMate-server-v56-request-isolation.zip)：隔离异常请求，保留账号、行程、订单、额度及配置。详见 [v56 验证与安装说明](guest-v56/v56-请求隔离修复说明.md)。
 
