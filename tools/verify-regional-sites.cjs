@@ -52,9 +52,11 @@ const {chromium}=require(path.join(root,'TripMate-desktop-v54/node_modules/playw
         await page.route('https://tripmate-travel-planner.xuantingjiang39.chatgpt.site/**',route=>route.fulfill({body:'<html>route selected</html>',contentType:'text/html'}));
         await page.selectOption('#tripmate-region',region==='domestic'?'overseas':'domestic');await page.waitForURL(/https:\/\//);
         assert.equal(new URL(page.url()).hostname,region==='domestic'?'tripmate-travel-planner.xuantingjiang39.chatgpt.site':'111.230.133.155');assert.equal(new URL(page.url()).searchParams.get('lang'),'ja');
-        await page.goto(base+'/');await page.locator('#tripmate-language').waitFor();
+        await page.goto(base+'/?lang=zh-CN');await page.locator('#tripmate-language').waitFor();
+        const optionValues=await page.locator('select:not(#tripmate-region):not(#tripmate-language) option').evaluateAll(options=>options.map(option=>option.value));
         const input=page.locator('input[type="email"]').first();await input.fill('example@example.invalid');
         await page.selectOption('#tripmate-language','en');assert.equal(await input.inputValue(),'example@example.invalid');
+        assert.deepEqual(await page.locator('select:not(#tripmate-region):not(#tripmate-language) option').evaluateAll(options=>options.map(option=>option.value)),optionValues);
         await page.screenshot({path:path.join(output,`${region}-${width}-login.png`),fullPage:true});
         assert.deepEqual(errors,[]);await context.close();
       }

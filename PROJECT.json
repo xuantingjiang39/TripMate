@@ -30,14 +30,15 @@
       "release": 58,
       "siteProjectId": "appgprj_6ab509a4cee88191b6454e19cea6d795",
       "url": "https://tripmate-travel-planner.xuantingjiang39.chatgpt.site",
-      "savedVersion": 18,
-      "sourceCommit": "0ccf05198fe8e69304756ccd8a30015f5336d2a5"
+      "savedVersion": 19,
+      "sourceCommit": "54868c4292bd4355745dfbeb31dc707dda0c4938"
     },
     "server": {
       "source": "guest-v58",
       "version": "v58-regional-language",
       "release": 58,
       "installer": "TripMate-server-v58-regional-language.zip",
+      "updateArchive": "TripMate-server-v58-update.zip",
       "lastObservedVersion": "v55-download-page",
       "deployment": "manual-only"
     }

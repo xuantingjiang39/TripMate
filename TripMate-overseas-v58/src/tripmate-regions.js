@@ -83,6 +83,8 @@
   regionSelect.value = region;languageSelect.value = language;
   const repaint = () => {
     document.documentElement.lang = language;
+    // Text-only <option> elements otherwise change their submitted value when translated.
+    document.querySelectorAll('select:not(#tripmate-region):not(#tripmate-language) option:not([value])').forEach(option=>option.setAttribute('value',option.textContent));
     const labels = { 'zh-CN':['软件下载','站点','界面语言','国内站','海外站'], en:['Downloads','Site','Language','China site','Global site'], ja:['ダウンロード','サイト','言語','中国サイト','海外サイト'] }[language];
     bar.querySelector('a').textContent=labels[0];bar.querySelector('.region-label').textContent=labels[1];bar.querySelector('.language-label').textContent=labels[2];
     regionSelect.options[0].textContent=labels[3];regionSelect.options[1].textContent=labels[4];regionSelect.setAttribute('aria-label',labels[1]);languageSelect.setAttribute('aria-label',labels[2]);
