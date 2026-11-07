@@ -68,8 +68,8 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 | --- | --- | --- | --- |
 | Windows | [TripMate-desktop-v54](TripMate-desktop-v54/README.md) | 1.0.1 / v54 | Electron 联网桌面客户端，路线与日出新图标 |
 | Android / 原生移动端 | [TripMate-native-v58](TripMate-native-v58/README-原生App.md) | 1.1.5 / v58 | 简洁今日页、按日交通、说明按需展开，保留同步保护 |
-| 海外站 | `TripMate-overseas-v61/` | 统一入口 / v61 | 保留 D1 账号与公开访问，增加国内 / 海外及语言切换 |
-| 服务器与网页 | `guest-v61/` | v61-unified-entry | 两入口同一界面/账号/数据/额度；国内待手动升级 |
+| 海外站 | `TripMate-overseas-v62/` | 短网址 / v62 | 保留 D1 账号与公开访问，增加国内 / 海外及语言切换 |
+| 服务器与网页 | `guest-v62/` | v62-short-address | 两入口同一界面/账号/数据/额度；国内待手动升级 |
 
 Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-toolchain/`。不要把 Windows 桌面版覆盖到 Android 源码目录。
 
@@ -79,7 +79,7 @@ Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-to
 
 - [安卓 v58 / 1.1.5 APK](https://github.com/xuantingjiang39/TripMate/releases/download/v58/TripMate-v58-android-v1.1.5.apk)：覆盖安装，保留原数据。
 - [v58 国内服务器更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v58/TripMate-server-v58-update.zip)，复用已有安装文件，仅下载缺少的文件；本机还保留含全部安装文件的完整包。见 [安装与验证说明](guest-v59/v58-国内海外与语言说明.md)。
-- [海外站](https://tripmate-travel-planner.xuantingjiang39.chatgpt.site/download) 保留现有账号系统，通过本站路径提供海外下载；两入口共用原国内账号，旧独立国际记录保留在找回区。
+- [海外站](https://tripmate.xuantingjiang39.chatgpt.site/download) 保留现有账号系统，通过本站路径提供海外下载；两入口共用原国内账号，旧独立国际记录保留在找回区。
 
 v60 国际站 Sites 版本 21 已发布，国内站需手动更新后才能连接共享记录。验证范围见 [v60 交付核验](docs/release-v60-verification.md)。
 
@@ -144,7 +144,7 @@ Windows 流程检查使用隔离的临时用户目录，真实接口只检查匿
 
 国内/国际切换从下拉菜单改为顶部直接按钮。设置集中管理语言（44 种基础界面语言）、字号与减少动画，偏好保存在浏览器并随切站带过去。中英日覆盖更多页面文字；未覆盖部分为英文或原文，行程不自动翻译。两个站账号独立。
 
-[国际站](https://tripmate-travel-planner.xuantingjiang39.chatgpt.site) · [v59 国内站更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v59/TripMate-server-v59-update.zip)
+[国际站](https://tripmate.xuantingjiang39.chatgpt.site) · [v59 国内站更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v59/TripMate-server-v59-update.zip)
 
 国内服务器由用户手动更新；Windows 和 Android 安装文件继续使用 v54/v58，本次没有新 APK。
 
@@ -152,7 +152,7 @@ Windows 流程检查使用隔离的临时用户目录，真实接口只检查匿
 
 网页设置新增“合并 / 共享记录”。两站分别登录，用国内一次性码授权，先预览和备份，再确认合并。连接后国际站使用国内共享主记录；密码、角色、AI 额度及账本独立。只有编号和内容都一致的记录去重；同价不同单号的订单完整保留。
 
-[国际站合并入口](https://tripmate-travel-planner.xuantingjiang39.chatgpt.site/account-link) · [v60 国内更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v60/TripMate-server-v60-update.zip) · [安装与使用](guest-v60/v60-cross-site-sync.md) · [验证范围](docs/release-v60-verification.md)
+[国际站合并入口](https://tripmate.xuantingjiang39.chatgpt.site/account-link) · [v60 国内更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v60/TripMate-server-v60-update.zip) · [安装与使用](guest-v60/v60-cross-site-sync.md) · [验证范围](docs/release-v60-verification.md)
 
 国内必须先安装 v60，之后由本人连接和确认。尚未改动任何真实账号的旅行记录；没有新 APK。
 
@@ -160,6 +160,10 @@ Windows 流程检查使用隔离的临时用户目录，真实接口只检查匿
 
 国内与国际入口现在共用同一份主页面、原国内账号密码、行程、订单、AI额度与业务服务；日常无需配对或传文件。网络正常、页面打开且未编辑时自动检查其他入口的新记录。两网址的首次浏览器登录分别进行。
 
-[国际入口](https://tripmate-travel-planner.xuantingjiang39.chatgpt.site) · [v61国内更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v61/TripMate-server-v61-update.zip) · [安装/旧记录说明](guest-v61/v61-unified-entry.md) · [验证范围](docs/release-v61-verification.md)
+[国际入口](https://tripmate.xuantingjiang39.chatgpt.site) · [v61国内更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v61/TripMate-server-v61-update.zip) · [安装/旧记录说明](guest-v61/v61-unified-entry.md) · [验证范围](docs/release-v61-verification.md)
 
 国际入口目前提供全球托管的前端，业务共用国内后端；独立国外业务服务器尚未配置。旧独立国际账号和数据不删除，可在 /legacy 验证找回，日常请使用统一入口。v61同时修复Linux安装脚本CRLF，并检查实际ZIP内脚本。
+
+## v62 short address
+
+国际入口已缩短为 https://tripmate.xuantingjiang39.chatgpt.site 。同一Site项目、同一账号/数据库绑定不变。国内安装v62以支持新地址的CORS登录；旧地址仍列在兼容白名单，无通配来源。换域名需重新登录，浏览器会话不跨域复制。

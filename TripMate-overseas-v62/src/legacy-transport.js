@@ -1,0 +1,1 @@
+(() => {const fetchOriginal=window.fetch.bind(window);window.fetch=(input,options)=>{const url=new URL(typeof input==='string'?input:input.url,location.href);if(url.origin===location.origin&&url.pathname.startsWith('/api/'))return fetchOriginal('/legacy-api'+url.pathname.slice(4)+url.search,options);return fetchOriginal(input,options);};})();

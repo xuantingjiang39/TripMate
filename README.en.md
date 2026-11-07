@@ -64,3 +64,7 @@ Both sites retain separate logins and credit ledgers. Explicitly link using a si
 
 ## v61 unified entry points
 Both addresses serve byte-identical primary HTML and use the original China account, password, trips, bookings, credits and APIs. No pairing or file transfer for normal use. The international frontend remains globally hosted; business APIs currently share the China backend, not a separately provisioned overseas business server. Old independent international data remains in authenticated recovery routes. All packaged shell scripts are checked for LF/no BOM; the v60 CRLF packaging fault is fixed. See docs/release-v61-verification.md.
+
+## v62 short address
+
+国际入口已缩短为 https://tripmate.xuantingjiang39.chatgpt.site 。同一Site项目、同一账号/数据库绑定不变。国内安装v62以支持新地址的CORS登录；旧地址仍列在兼容白名单，无通配来源。换域名需重新登录，浏览器会话不跨域复制。
