@@ -81,6 +81,8 @@ Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-to
 - [v58 国内服务器更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v58/TripMate-server-v58-update.zip)，复用已有安装文件，仅下载缺少的文件；本机还保留含全部安装文件的完整包。见 [安装与验证说明](guest-v58/v58-国内海外与语言说明.md)。
 - [海外站](https://tripmate-travel-planner.xuantingjiang39.chatgpt.site/download) 保留现有账号系统，通过本站路径提供海外下载；国内 / 海外站账号独立。
 
+v58 海外 Sites 版本 19 已发布，国内站仍需手动更新；命令行公网检查被 Cloudflare 1010 拦截，海外下载还需浏览器确认。完整范围见 [v58 交付核验](docs/release-v58-verification.md)。
+
 - [v57 服务器直下完整更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v57/TripMate-server-v57-direct-downloads.zip)：包含安卓 APK、Windows 安装包及服务器源码。部署后下载按钮使用本站 `/downloads/` 链接，GitHub 仅作备用。详见 [v57 安装说明](guest-v57/v57-服务器直接下载说明.md)。
 
 - [v56 服务器稳定性修复包](https://github.com/xuantingjiang39/TripMate/releases/download/v56/TripMate-server-v56-request-isolation.zip)：隔离异常请求，保留账号、行程、订单、额度及配置。详见 [v56 验证与安装说明](guest-v56/v56-请求隔离修复说明.md)。

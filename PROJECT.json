@@ -31,7 +31,9 @@
       "siteProjectId": "appgprj_6ab509a4cee88191b6454e19cea6d795",
       "url": "https://tripmate-travel-planner.xuantingjiang39.chatgpt.site",
       "savedVersion": 19,
-      "sourceCommit": "54868c4292bd4355745dfbeb31dc707dda0c4938"
+      "sourceCommit": "54868c4292bd4355745dfbeb31dc707dda0c4938",
+      "deploymentId": "appgdep_6aeeef0b0c188191b843de7d98713c35",
+      "deploymentStatus": "succeeded"
     },
     "server": {
       "source": "guest-v58",
