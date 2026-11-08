@@ -1,0 +1,1 @@
+{"name":"tripmate-pages-v63","private":true,"type":"module","scripts":{"build":"node build.mjs"}}

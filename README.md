@@ -2,6 +2,8 @@
 
 # 旅伴 TripMate
 
+**当前国际入口：[tripmate-3x7.pages.dev](https://tripmate-3x7.pages.dev)**（网址不含个人用户名）。国内仍使用原服务器；国内手动更新 v63 后，新入口共用原账号、行程和额度。[v63 更新说明](guest-v63/v63-pages-entry.md) · [国际下载](https://tripmate-3x7.pages.dev/download)
+
 **带爸妈旅行，少走冤枉路。把每天去哪、怎么去、何时休息，整理成可以修改和分享的行程。**
 
 中文 · [English](README.en.md)
@@ -167,3 +169,9 @@ Windows 流程检查使用隔离的临时用户目录，真实接口只检查匿
 ## v62 short address
 
 国际入口已缩短为 https://tripmate.xuantingjiang39.chatgpt.site 。同一Site项目、同一账号/数据库绑定不变。国内安装v62以支持新地址的CORS登录；旧地址仍列在兼容白名单，无通配来源。换域名需重新登录，浏览器会话不跨域复制。
+
+## v63 · 无个人用户名的国际地址
+
+新增用户自己 Cloudflare Pages 账户下的国际入口 https://tripmate-3x7.pages.dev 。Pages 仅提供相同前端和固定来源下载，业务数据仍共用原国内服务器。原 Sites 与旧独立记录保留区不删除。国内 v63 更新新增精确来源兼容和切站地址，账号、AI 额度与第三方配置保持原位置。
+
+[国内更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v63/TripMate-server-v63-update.zip) · [安装方法](guest-v63/v63-pages-entry.md) · [验证范围](docs/release-v63-verification.md)

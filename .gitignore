@@ -24,6 +24,8 @@
 !/tools/verify-v61-unified.mjs
 !/tools/package-server.py
 !/tools/verify-v62-unified.mjs
+!/tools/verify-v63-unified.mjs
+!/tools/verify-v63-pages.mjs
 
 !/TripMate-desktop-v54/
 /TripMate-desktop-v54/*
@@ -212,6 +214,23 @@
 !/TripMate-overseas-v62/.openai/
 /TripMate-overseas-v62/.openai/*
 !/TripMate-overseas-v62/.openai/hosting.json
+
+!/guest-v63/
+/guest-v63/*
+!/guest-v63/*.mjs
+!/guest-v63/*.js
+!/guest-v63/*.sh
+!/guest-v63/*.html
+!/guest-v63/*.md
+!/guest-v63/*.txt
+!/guest-v63/tripmate-icon.png
+
+!/TripMate-pages-v63/
+/TripMate-pages-v63/*
+!/TripMate-pages-v63/build.mjs
+!/TripMate-pages-v63/worker.mjs
+!/TripMate-pages-v63/package.json
+!/TripMate-pages-v63/README.md
 
 # Defense in depth inside the allowlisted source directories.
 **/node_modules/

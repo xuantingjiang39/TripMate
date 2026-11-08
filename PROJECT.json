@@ -7,7 +7,7 @@
     "url": "https://github.com/xuantingjiang39/TripMate",
     "visibility": "public",
     "defaultBranch": "main",
-    "releaseTag": "v62"
+    "releaseTag": "v63"
   },
   "components": {
     "windows": {
@@ -26,22 +26,26 @@
       "androidBuildWorkspace": "C:/tmb"
     },
     "overseas": {
-      "source": "TripMate-overseas-v62",
-      "release": 62,
-      "siteProjectId": "appgprj_6ab509a4cee88191b6454e19cea6d795",
-      "url": "https://tripmate.xuantingjiang39.chatgpt.site",
-      "savedVersion": 23,
-      "sourceCommit": "5326a2e9b60f68a53640eb6edae30a92fd986288",
-      "deploymentId": "appgdep_6aefb8ac776c81919bea5916687cfd8b",
+      "source": "TripMate-pages-v63",
+      "release": 63,
+      "hosting": "cloudflare-pages",
+      "projectName": "tripmate",
+      "url": "https://tripmate-3x7.pages.dev",
       "deploymentStatus": "succeeded",
-      "previousUrl": "https://tripmate-travel-planner.xuantingjiang39.chatgpt.site"
+      "previousUrl": "https://tripmate.xuantingjiang39.chatgpt.site",
+      "legacySource": "TripMate-overseas-v62",
+      "legacySiteProjectId": "appgprj_6ab509a4cee88191b6454e19cea6d795",
+      "legacyRecoveryUrl": "https://tripmate.xuantingjiang39.chatgpt.site/legacy",
+      "deploymentId": "78318740-2f07-4019-8aa7-bbd66c3f5330",
+      "deployedAt": "2026-11-08",
+      "liveVerification": "public-pages-and-APK-range-only"
     },
     "server": {
-      "source": "guest-v62",
-      "version": "v62-short-address",
-      "release": 62,
-      "installer": "TripMate-server-v62-short-address.zip",
-      "updateArchive": "TripMate-server-v62-update.zip",
+      "source": "guest-v63",
+      "version": "v63-pages-entry",
+      "release": 63,
+      "installer": "TripMate-server-v63-pages-entry.zip",
+      "updateArchive": "TripMate-server-v63-update.zip",
       "lastObservedVersion": "v60-regional-sync",
       "deployment": "manual-only",
       "lastObservedVia": "user-install-log-after-line-ending-repair"
