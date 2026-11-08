@@ -7,7 +7,7 @@
     "url": "https://github.com/xuantingjiang39/TripMate",
     "visibility": "public",
     "defaultBranch": "main",
-    "releaseTag": "v63"
+    "releaseTag": "v64"
   },
   "components": {
     "windows": {
@@ -38,14 +38,18 @@
       "legacyRecoveryUrl": "https://tripmate.xuantingjiang39.chatgpt.site/legacy",
       "deploymentId": "78318740-2f07-4019-8aa7-bbd66c3f5330",
       "deployedAt": "2026-11-08",
-      "liveVerification": "public-pages-and-APK-range-only"
+      "liveVerification": "public-pages-and-APK-range-only",
+      "preparedSource": "TripMate-pages-v64",
+      "preparedRelease": 64,
+      "preparedArchive": "TripMate-pages-v64-upload.zip",
+      "preparedDeployment": "manual-only"
     },
     "server": {
-      "source": "guest-v63",
-      "version": "v63-pages-entry",
-      "release": 63,
-      "installer": "TripMate-server-v63-pages-entry.zip",
-      "updateArchive": "TripMate-server-v63-update.zip",
+      "source": "guest-v64",
+      "version": "v64-session-races",
+      "release": 64,
+      "installer": "TripMate-server-v64-session-races.zip",
+      "updateArchive": "TripMate-server-v64-update.zip",
       "lastObservedVersion": "v60-regional-sync",
       "deployment": "manual-only",
       "lastObservedVia": "user-install-log-after-line-ending-repair"

@@ -26,6 +26,9 @@
 !/tools/verify-v62-unified.mjs
 !/tools/verify-v63-unified.mjs
 !/tools/verify-v63-pages.mjs
+!/tools/verify-v64-auth-races.mjs
+!/tools/verify-v64-unified.mjs
+!/tools/verify-v64-pages.mjs
 
 !/TripMate-desktop-v54/
 /TripMate-desktop-v54/*
@@ -231,6 +234,23 @@
 !/TripMate-pages-v63/worker.mjs
 !/TripMate-pages-v63/package.json
 !/TripMate-pages-v63/README.md
+
+!/guest-v64/
+/guest-v64/*
+!/guest-v64/*.mjs
+!/guest-v64/*.js
+!/guest-v64/*.sh
+!/guest-v64/*.html
+!/guest-v64/*.md
+!/guest-v64/*.txt
+!/guest-v64/tripmate-icon.png
+
+!/TripMate-pages-v64/
+/TripMate-pages-v64/*
+!/TripMate-pages-v64/build.mjs
+!/TripMate-pages-v64/worker.mjs
+!/TripMate-pages-v64/package.json
+!/TripMate-pages-v64/README.md
 
 # Defense in depth inside the allowlisted source directories.
 **/node_modules/

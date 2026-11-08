@@ -70,8 +70,8 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 | --- | --- | --- | --- |
 | Windows | [TripMate-desktop-v54](TripMate-desktop-v54/README.md) | 1.0.1 / v54 | Electron 联网桌面客户端，路线与日出新图标 |
 | Android / 原生移动端 | [TripMate-native-v58](TripMate-native-v58/README-原生App.md) | 1.1.5 / v58 | 简洁今日页、按日交通、说明按需展开，保留同步保护 |
-| 海外站 | `TripMate-overseas-v62/` | 短网址 / v62 | 保留 D1 账号与公开访问，增加国内 / 海外及语言切换 |
-| 服务器与网页 | `guest-v62/` | v62-short-address | 两入口同一界面/账号/数据/额度；国内待手动升级 |
+| 国际站 | `TripMate-pages-v63/`；待部署 `TripMate-pages-v64/` | 线上 v63；已打包 v64 | Pages 国际前端；旧 Sites 记录保留区不变 |
+| 服务器与网页 | `guest-v64/` | v64-session-races | 会话乱序与旧账号响应保护；国内待手动升级 |
 
 Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-toolchain/`。不要把 Windows 桌面版覆盖到 Android 源码目录。
 
@@ -175,3 +175,11 @@ Windows 流程检查使用隔离的临时用户目录，真实接口只检查匿
 新增用户自己 Cloudflare Pages 账户下的国际入口 https://tripmate-3x7.pages.dev 。Pages 仅提供相同前端和固定来源下载，业务数据仍共用原国内服务器。原 Sites 与旧独立记录保留区不删除。国内 v63 更新新增精确来源兼容和切站地址，账号、AI 额度与第三方配置保持原位置。
 
 [国内更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v63/TripMate-server-v63-update.zip) · [安装方法](guest-v63/v63-pages-entry.md) · [验证范围](docs/release-v63-verification.md)
+
+## v64 · 退出与换号时的会话保护
+
+修复旧退出请求延迟返回时清掉新会话的问题。国际入口退出时立即清除标签页授权，旧登录结果不能恢复已退出会话；国内与国际网页都忽略换号前的旧账号数据响应，退出按钮的旧回调也不能重置新账号界面。
+
+本版本只发布可审查更新包，没有自动部署国内或国际站。国际线上仍是 v63；完整修复需用户分别安装服务器更新包、上传 Pages 部署包。账号、行程、订单、额度及第三方配置保留，Android/Windows 安装文件未改变。
+
+[v64 更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v64/TripMate-server-v64-update.zip) · [手动安装说明](guest-v64/v64-session-races.md) · [验证记录](docs/release-v64-verification.md)
