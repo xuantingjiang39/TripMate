@@ -2,7 +2,7 @@
 
 # 旅伴 TripMate
 
-**当前国际入口：[tripmate-3x7.pages.dev](https://tripmate-3x7.pages.dev)**（网址不含个人用户名）。国内仍使用原服务器；国内手动更新 v63 后，新入口共用原账号、行程和额度。[v63 更新说明](guest-v63/v63-pages-entry.md) · [国际下载](https://tripmate-3x7.pages.dev/download)
+**当前国际入口：[tripmate-3x7.pages.dev](https://tripmate-3x7.pages.dev)**（网址不含个人用户名）。用户已确认国内运行 v64；国际线上仍为 v63，v65 国内/国际更新包均待手动部署。两入口共用原国内账号和数据，公网连接问题仍需排查。[v65 更新说明](guest-v65/v65-connection-recovery.md) · [国际下载](https://tripmate-3x7.pages.dev/download)
 
 **带爸妈旅行，少走冤枉路。把每天去哪、怎么去、何时休息，整理成可以修改和分享的行程。**
 
@@ -70,8 +70,8 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 | --- | --- | --- | --- |
 | Windows | [TripMate-desktop-v54](TripMate-desktop-v54/README.md) | 1.0.1 / v54 | Electron 联网桌面客户端，路线与日出新图标 |
 | Android / 原生移动端 | [TripMate-native-v58](TripMate-native-v58/README-原生App.md) | 1.1.5 / v58 | 简洁今日页、按日交通、说明按需展开，保留同步保护 |
-| 国际站 | `TripMate-pages-v63/`；待部署 `TripMate-pages-v64/` | 线上 v63；已打包 v64 | Pages 国际前端；旧 Sites 记录保留区不变 |
-| 服务器与网页 | `guest-v64/` | v64-session-races | 会话乱序与旧账号响应保护；国内待手动升级 |
+| 国际站 | `TripMate-pages-v63/`；待部署 `TripMate-pages-v65/` | 线上 v63；已打包 v65 | Pages 前端；新连接检查待手动上传 |
+| 服务器与网页 | `guest-v65/` | v65-connection-recovery | 用户确认国内 v64；v65 超时/连接检查待手动安装 |
 
 Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-toolchain/`。不要把 Windows 桌面版覆盖到 Android 源码目录。
 
@@ -183,3 +183,11 @@ Windows 流程检查使用隔离的临时用户目录，真实接口只检查匿
 本版本只发布可审查更新包，没有自动部署国内或国际站。国际线上仍是 v63；完整修复需用户分别安装服务器更新包、上传 Pages 部署包。账号、行程、订单、额度及第三方配置保留，Android/Windows 安装文件未改变。
 
 [v64 更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v64/TripMate-server-v64-update.zip) · [手动安装说明](guest-v64/v64-session-races.md) · [验证记录](docs/release-v64-verification.md)
+
+## v65 · 登录超时与连接检查
+
+登录请求和响应正文共用 12 秒期限，超时中止本次浏览器请求并恢复操作。失败时可展开“无法登录？检查连接”，匿名检查实际国内业务健康接口并显示已验证的版本；连接失败不再一律要求升级。新增只读服务器诊断脚本，协助核对 HTTPS、跨域预检、443 监听和 UFW。
+
+连接模块不自动重试提交；超时不保证服务器没有处理请求。本版本改善等待和排查流程，不宣称修复尚未查明的公网、防火墙或证书问题。未自动部署任何站点，数据和第三方配置不变，无新 App 安装文件。
+
+[v65 更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v65/TripMate-server-v65-update.zip) · [Pages 包](https://github.com/xuantingjiang39/TripMate/releases/download/v65/TripMate-pages-v65-upload.zip) · [安装/诊断说明](guest-v65/v65-connection-recovery.md) · [验证范围](docs/release-v65-verification.md)

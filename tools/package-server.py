@@ -21,6 +21,8 @@ def verify_archive(filename):
         names = set(archive.namelist())
         if not REQUIRED <= names:
             raise ValueError('Missing server files')
+        if b'/tripmate-network.js' in archive.read('tripmate-mvp.html') and 'tripmate-network.js' not in names:
+            raise ValueError('Missing connection recovery script')
         if archive.testzip() is not None:
             raise ValueError('ZIP CRC check failed')
         for name in names:
