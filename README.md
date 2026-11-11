@@ -2,7 +2,7 @@
 
 # 旅伴 TripMate
 
-**当前国际入口：[tripmate-3x7.pages.dev](https://tripmate-3x7.pages.dev)**（网址不含个人用户名）。用户已确认国内运行 v64；国际线上检查仍为 v63，最新 v66 国内/国际更新包均待手动部署。两入口共用原国内账号和数据，公网连接问题仍需排查。[v66 更新说明](guest-v66/v66-pending-recovery.md) · [国际下载](https://tripmate-3x7.pages.dev/download)
+**当前国际入口：[tripmate-3x7.pages.dev](https://tripmate-3x7.pages.dev)**（网址不含个人用户名）。用户已确认国内运行 v64；国际线上检查仍为 v63，最新 v67 国内/国际更新包均待手动部署。两入口共用原国内账号和数据，公网连接问题仍需排查。[v67 更新说明](guest-v67/v67-restore-conflicts.md) · [国际下载](https://tripmate-3x7.pages.dev/download)
 
 **带爸妈旅行，少走冤枉路。把每天去哪、怎么去、何时休息，整理成可以修改和分享的行程。**
 
@@ -70,8 +70,8 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 | --- | --- | --- | --- |
 | Windows | [TripMate-desktop-v54](TripMate-desktop-v54/README.md) | 1.0.1 / v54 | Electron 联网桌面客户端，路线与日出新图标 |
 | Android / 原生移动端 | [TripMate-native-v58](TripMate-native-v58/README-原生App.md) | 1.1.5 / v58 | 简洁今日页、按日交通、说明按需展开，保留同步保护 |
-| 国际站 | `TripMate-pages-v63/`；待部署 `TripMate-pages-v66/` | 线上 v63；已打包 v66 | Pages 前端；未同步修改保护待手动上传 |
-| 服务器与网页 | `guest-v66/` | v66-pending-recovery | 用户确认国内 v64；v66 未同步修改保护待手动安装 |
+| 国际站 | `TripMate-pages-v63/`；待部署 `TripMate-pages-v67/` | 线上 v63；已打包 v67 | Pages 前端；恢复版本保护待手动上传 |
+| 服务器与网页 | `guest-v67/` | v67-restore-conflicts | 用户确认国内 v64；v67 恢复版本保护待手动安装 |
 
 Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-toolchain/`。不要把 Windows 桌面版覆盖到 Android 源码目录。
 
@@ -199,3 +199,11 @@ Windows 流程检查使用隔离的临时用户目录，真实接口只检查匿
 账号菜单可选择“保留本机副本并载入云端”；副本保存在当前浏览器，支持按现有账号备份格式下载和恢复。不会自动覆盖较新的云端记录。原账号、行程、订单、额度和第三方配置保留，App 安装文件不变，站点均未自动部署。
 
 [v66 更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v66/TripMate-server-v66-update.zip) · [Pages 包](https://github.com/xuantingjiang39/TripMate/releases/download/v66/TripMate-pages-v66-upload.zip) · [安装说明](guest-v66/v66-pending-recovery.md) · [验证记录](docs/release-v66-verification.md)
+
+## v67 · 备份恢复前核对云端版本
+
+修复恢复过程中的覆盖风险：自动备份后若另一设备更新云端，旧版仍会直接用所选备份覆盖新记录。现在恢复请求必须携带自动备份快照的版本，服务在同一次写入事务内核对；版本改变时返回冲突并保留云端新内容。旧备份文件格式不变。
+
+恢复过程中取消、改选文件或产生新修改会得到保护；回执丢失会提示先核对结果，不自动重试。退出/换号时清空旧文件预览，过期恢复回调不会修改新账号界面。恢复功能需网页和服务器 v67 配套，旧客户端无版本请求会被安全拒绝；未自动部署，也未修改账号、额度、第三方配置或原 App 安装文件。
+
+[v67 更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v67/TripMate-server-v67-update.zip) · [Pages 包](https://github.com/xuantingjiang39/TripMate/releases/download/v67/TripMate-pages-v67-upload.zip) · [安装说明](guest-v67/v67-restore-conflicts.md) · [验证记录](docs/release-v67-verification.md)

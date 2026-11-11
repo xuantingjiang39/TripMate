@@ -1,0 +1,1 @@
+(async()=>{try{const r=await fetch('/api/auth/me'),d=await r.json();document.getElementById('unified-account').textContent=r.ok?'当前统一账号：'+d.user.email:'请返回工作台，用原国内账号登录。';}catch{document.getElementById('unified-account').textContent='统一账号服务暂时不可达，请稍后重试。';}})();
