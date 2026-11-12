@@ -21,7 +21,7 @@ def verify_archive(filename):
         names = set(archive.namelist())
         if not REQUIRED <= names:
             raise ValueError('Missing server files')
-        for module in ['tripmate-network.js', 'tripmate-sync-journal.js']:
+        for module in ['tripmate-network.js', 'tripmate-sync-journal.js', 'tripmate-state-schema.js']:
             if ('/'+module).encode() in archive.read('tripmate-mvp.html') and module not in names:
                 raise ValueError('Missing page module: '+module)
         if archive.testzip() is not None:
