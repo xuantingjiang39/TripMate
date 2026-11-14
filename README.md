@@ -2,7 +2,7 @@
 
 # 旅伴 TripMate
 
-**当前国际入口：[tripmate-3x7.pages.dev](https://tripmate-3x7.pages.dev)**（网址不含个人用户名）。最近已确认国内 v64、国际 v63；最新 v69 国内/国际更新包均待手动部署，本次没有验证线上升级。两入口共用原国内账号和数据，公网连接问题仍需排查。[v69 更新说明](guest-v69/v69-restore-selection.md) · [国际下载](https://tripmate-3x7.pages.dev/download)
+**当前国际入口：[tripmate-3x7.pages.dev](https://tripmate-3x7.pages.dev)**（网址不含个人用户名）。最近已确认国内 v64、国际 v63；最新 v70 国内/国际更新包均待手动部署，本次没有验证线上升级。两入口共用原国内账号和数据，公网连接问题仍需排查。[v70 更新说明](guest-v70/v70-snapshot-reads.md) · [国际下载](https://tripmate-3x7.pages.dev/download)
 
 **带爸妈旅行，少走冤枉路。把每天去哪、怎么去、何时休息，整理成可以修改和分享的行程。**
 
@@ -62,7 +62,7 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 
 源码公开，项目整体许可证尚未指定；第三方组件遵循各自许可证。本地历史版本与用户数据不包含在此仓库中。
 
-以下为当前源码入口与开发说明，更新于 2026-11-13。
+以下为当前源码入口与开发说明，更新于 2026-11-14。
 
 ## 从哪里继续开发
 
@@ -70,8 +70,8 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 | --- | --- | --- | --- |
 | Windows | [TripMate-desktop-v54](TripMate-desktop-v54/README.md) | 1.0.1 / v54 | Electron 联网桌面客户端，路线与日出新图标 |
 | Android / 原生移动端 | [TripMate-native-v58](TripMate-native-v58/README-原生App.md) | 1.1.5 / v58 | 简洁今日页、按日交通、说明按需展开，保留同步保护 |
-| 国际站 | `TripMate-pages-v63/`；待部署 `TripMate-pages-v69/` | 最近确认 v63；已打包 v69 | Pages 前端；备份选择竞态修复待手动上传 |
-| 服务器与网页 | `guest-v69/` | v69-restore-selection | 用户确认国内 v64；v69 备份选择竞态修复待手动安装 |
+| 国际站 | `TripMate-pages-v63/`；待部署 `TripMate-pages-v70/` | 最近确认 v63；已打包 v70 | Pages 前端；云端响应校验待手动上传 |
+| 服务器与网页 | `guest-v70/` | v70-snapshot-reads | 用户确认国内 v64；v70 云端响应校验待手动安装 |
 
 Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-toolchain/`。不要把 Windows 桌面版覆盖到 Android 源码目录。
 
@@ -223,3 +223,11 @@ Windows 流程检查使用隔离的临时用户目录，真实接口只检查匿
 7 组延迟读取、390/1280px 实际浏览器选文件、有效恢复、账号隔离、离线同步和下载回归通过；所有写入采用本机合成账号。未自动部署，用户数据、配置与 App 安装文件未变。
 
 [v69 更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v69/TripMate-server-v69-update.zip) · [Pages 包](https://github.com/xuantingjiang39/TripMate/releases/download/v69/TripMate-pages-v69-upload.zip) · [安装说明](guest-v69/v69-restore-selection.md) · [验证记录](docs/release-v69-verification.md)
+
+## v70 · 云端响应异常时保留本机内容
+
+登录载入、后台同步和手动载入云端现在先检查旅行数据和版本，拒绝缺少 state、损坏结构或过旧的响应，避免误把不完整响应当空账号。明确有效的空记录仍可正常载入，原有备份与未同步修改保护保留。
+
+三条读取路径、390/1280px 浏览器异常响应注入、有效恢复、账号隔离、离线同步及下载回归通过；全部写入使用本机合成账号。没有自动部署、数据库迁移或配置重置，APK/EXE 未重新打包。
+
+[v70 更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v70/TripMate-server-v70-update.zip) · [Pages 包](https://github.com/xuantingjiang39/TripMate/releases/download/v70/TripMate-pages-v70-upload.zip) · [安装说明](guest-v70/v70-snapshot-reads.md) · [验证记录](docs/release-v70-verification.md)

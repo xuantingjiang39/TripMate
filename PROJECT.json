@@ -1,13 +1,13 @@
 {
   "name": "TripMate",
   "displayName": "旅伴 TripMate",
-  "updatedAt": "2026-11-13",
+  "updatedAt": "2026-11-14",
   "root": "C:/codex/TripMate",
   "repository": {
     "url": "https://github.com/xuantingjiang39/TripMate",
     "visibility": "public",
     "defaultBranch": "main",
-    "releaseTag": "v69"
+    "releaseTag": "v70"
   },
   "components": {
     "windows": {
@@ -39,17 +39,17 @@
       "deploymentId": "78318740-2f07-4019-8aa7-bbd66c3f5330",
       "deployedAt": "2026-11-08",
       "liveVerification": "public-pages-and-APK-range-only",
-      "preparedSource": "TripMate-pages-v69",
-      "preparedRelease": 69,
-      "preparedArchive": "TripMate-pages-v69-upload.zip",
+      "preparedSource": "TripMate-pages-v70",
+      "preparedRelease": 70,
+      "preparedArchive": "TripMate-pages-v70-upload.zip",
       "preparedDeployment": "manual-only"
     },
     "server": {
-      "source": "guest-v69",
-      "version": "v69-restore-selection",
-      "release": 69,
-      "installer": "TripMate-server-v69-restore-selection.zip",
-      "updateArchive": "TripMate-server-v69-update.zip",
+      "source": "guest-v70",
+      "version": "v70-snapshot-reads",
+      "release": 70,
+      "installer": "TripMate-server-v70-snapshot-reads.zip",
+      "updateArchive": "TripMate-server-v70-update.zip",
       "lastObservedVersion": "v64-session-races",
       "deployment": "manual-only",
       "lastObservedVia": "user-provided-HTTPS-health-2026-11-08T09:03:01.933Z"
