@@ -26,8 +26,8 @@
       "androidBuildWorkspace": "C:/tmb"
     },
     "overseas": {
-      "source": "TripMate-pages-v63",
-      "release": 63,
+      "source": "TripMate-pages-v70",
+      "release": 70,
       "hosting": "cloudflare-pages",
       "projectName": "tripmate",
       "url": "https://tripmate-3x7.pages.dev",
@@ -36,13 +36,13 @@
       "legacySource": "TripMate-overseas-v62",
       "legacySiteProjectId": "appgprj_6ab509a4cee88191b6454e19cea6d795",
       "legacyRecoveryUrl": "https://tripmate.xuantingjiang39.chatgpt.site/legacy",
-      "deploymentId": "78318740-2f07-4019-8aa7-bbd66c3f5330",
-      "deployedAt": "2026-11-08",
-      "liveVerification": "public-pages-and-APK-range-only",
+      "deploymentId": "0fc30f44-a93b-4dcc-9712-76d106325a17",
+      "deployedAt": "2026-11-14",
+      "liveVerification": "Cloudflare production UI and server-side public HTTPS health; local network inaccessible",
       "preparedSource": "TripMate-pages-v70",
       "preparedRelease": 70,
       "preparedArchive": "TripMate-pages-v70-upload.zip",
-      "preparedDeployment": "manual-only"
+      "preparedDeployment": "deployed-on-explicit-user-request"
     },
     "server": {
       "source": "guest-v70",
@@ -50,9 +50,12 @@
       "release": 70,
       "installer": "TripMate-server-v70-snapshot-reads.zip",
       "updateArchive": "TripMate-server-v70-update.zip",
-      "lastObservedVersion": "v64-session-races",
+      "lastObservedVersion": "v70-snapshot-reads",
       "deployment": "manual-only",
-      "lastObservedVia": "user-provided-HTTPS-health-2026-11-08T09:03:01.933Z"
+      "lastObservedVia": "authorized-OrcaTerm-local-and-public-HTTPS-health-2026-11-14",
+      "lastDeployedAt": "2026-11-14",
+      "lastDeploymentAuthorization": "explicit-user-request-this-session",
+      "lastDeploymentVerification": "nginx/service/config checksum and HTTPS health; no real-account login"
     }
   }
 }

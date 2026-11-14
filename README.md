@@ -2,7 +2,7 @@
 
 # 旅伴 TripMate
 
-**当前国际入口：[tripmate-3x7.pages.dev](https://tripmate-3x7.pages.dev)**（网址不含个人用户名）。最近已确认国内 v64、国际 v63；最新 v70 国内/国际更新包均待手动部署，本次没有验证线上升级。两入口共用原国内账号和数据，公网连接问题仍需排查。[v70 更新说明](guest-v70/v70-snapshot-reads.md) · [国际下载](https://tripmate-3x7.pages.dev/download)
+**当前国际入口：[tripmate-3x7.pages.dev](https://tripmate-3x7.pages.dev)**（网址不含个人用户名）。2026-11-14 用户明确授权后，国内与国际站均已部署 v70；服务器侧 HTTPS 健康检查通过。当前电脑到两个入口仍有连接问题，真实国际账号登录尚未验收。两入口共用原国内账号和数据。[部署记录](docs/deployment-v70-20261114.md) · [国际下载](https://tripmate-3x7.pages.dev/download)
 
 **带爸妈旅行，少走冤枉路。把每天去哪、怎么去、何时休息，整理成可以修改和分享的行程。**
 
@@ -70,8 +70,8 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 | --- | --- | --- | --- |
 | Windows | [TripMate-desktop-v54](TripMate-desktop-v54/README.md) | 1.0.1 / v54 | Electron 联网桌面客户端，路线与日出新图标 |
 | Android / 原生移动端 | [TripMate-native-v58](TripMate-native-v58/README-原生App.md) | 1.1.5 / v58 | 简洁今日页、按日交通、说明按需展开，保留同步保护 |
-| 国际站 | `TripMate-pages-v63/`；待部署 `TripMate-pages-v70/` | 最近确认 v63；已打包 v70 | Pages 前端；云端响应校验待手动上传 |
-| 服务器与网页 | `guest-v70/` | v70-snapshot-reads | 用户确认国内 v64；v70 云端响应校验待手动安装 |
+| 国际站 | `TripMate-pages-v70/` | v70 | 已按用户授权部署；国际登录连通性待验收 |
+| 服务器与网页 | `guest-v70/` | v70-snapshot-reads | 已按用户授权部署；服务、HTTPS 与配置校验通过 |
 
 Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-toolchain/`。不要把 Windows 桌面版覆盖到 Android 源码目录。
 
