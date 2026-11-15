@@ -1,13 +1,13 @@
 {
   "name": "TripMate",
   "displayName": "旅伴 TripMate",
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-15",
   "root": "C:/codex/TripMate",
   "repository": {
     "url": "https://github.com/xuantingjiang39/TripMate",
     "visibility": "public",
     "defaultBranch": "main",
-    "releaseTag": "v70"
+    "releaseTag": "v71"
   },
   "components": {
     "windows": {
@@ -39,17 +39,17 @@
       "deploymentId": "0fc30f44-a93b-4dcc-9712-76d106325a17",
       "deployedAt": "2026-11-14",
       "liveVerification": "Cloudflare production UI and server-side public HTTPS health; local network inaccessible",
-      "preparedSource": "TripMate-pages-v70",
-      "preparedRelease": 70,
-      "preparedArchive": "TripMate-pages-v70-upload.zip",
-      "preparedDeployment": "deployed-on-explicit-user-request"
+      "preparedSource": "TripMate-pages-v71",
+      "preparedRelease": 71,
+      "preparedArchive": "TripMate-pages-v71-upload.zip",
+      "preparedDeployment": "manual-only"
     },
     "server": {
-      "source": "guest-v70",
-      "version": "v70-snapshot-reads",
-      "release": 70,
-      "installer": "TripMate-server-v70-snapshot-reads.zip",
-      "updateArchive": "TripMate-server-v70-update.zip",
+      "source": "guest-v71",
+      "version": "v71-edit-safe-refresh",
+      "release": 71,
+      "installer": "TripMate-server-v71-edit-safe-refresh.zip",
+      "updateArchive": "TripMate-server-v71-update.zip",
       "lastObservedVersion": "v70-snapshot-reads",
       "deployment": "manual-only",
       "lastObservedVia": "authorized-OrcaTerm-local-and-public-HTTPS-health-2026-11-14",
