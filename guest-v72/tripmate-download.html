@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="下载旅伴 TripMate 安卓 APK 和 Windows 客户端，把家庭旅行计划带在身边。">
+  <meta name="theme-color" content="#285de0">
+  <title>软件下载 · 旅伴 TripMate</title>
+  <script defer src="/tripmate-regions.js"></script>
+  <link rel="icon" href="/tripmate-icon.png" type="image/png">
+  <style>
+    :root{color-scheme:light;--ink:#172846;--muted:#52627a;--blue:#285de0;--line:#dce4f0;--paper:#f5f8fd;--white:#fff}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 "Segoe UI","Microsoft YaHei",sans-serif}a{color:var(--blue);text-underline-offset:4px}a:focus-visible,summary:focus-visible{outline:3px solid #d87612;outline-offset:5px}::selection{background:#d8e5ff;color:#172846}html{scrollbar-color:#9cacc5 var(--paper)}
+    .wrap{width:min(1060px,100% - 64px);margin:auto}header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;font-weight:750;font-size:20px}.brand img{width:46px;height:46px}.back{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-weight:600}
+    main{padding:56px 0 48px}.intro{max-width:700px}h1{margin:0 0 16px;font-size:clamp(30px,4.5vw,48px);letter-spacing:-.025em;line-height:1.25;text-wrap:balance}p{margin:0 0 16px}.intro p{color:var(--muted);font-size:18px;max-width:58ch}.device-hint{display:inline-block;margin:8px 0 0;padding:8px 12px;border-radius:8px;background:#e5edff;color:#234b9c;font-size:14px}
+    .platforms{margin:40px 0 0;background:var(--white);border-radius:16px;padding:0 32px}.platform{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:30px 0}.platform+.platform{border-top:1px solid var(--line)}.platform h2{display:flex;align-items:center;gap:12px;margin:0 0 8px;font-size:25px;line-height:1.4}.platform svg{width:26px;height:26px;flex-shrink:0;color:var(--blue)}.platform p{margin:0;color:var(--muted)}.meta{font-size:14px;margin-top:5px!important;font-variant-numeric:tabular-nums}.badge{display:none;font-size:12px;font-weight:600;color:#234b9c;background:#e5edff;padding:3px 8px;border-radius:5px;letter-spacing:0}.recommended .badge{display:inline}.actions{display:flex;align-items:center;flex-direction:column;gap:8px}.download{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;min-width:200px;padding:11px 22px;border-radius:9px;background:var(--blue);color:var(--white);text-decoration:none;font-weight:700;transition:background .15s}.download svg{width:20px;height:20px}.download:hover{background:#1e49b8}.actions small{color:var(--muted);font-size:12px}.web{display:flex;justify-content:space-between;align-items:center;gap:24px;margin:32px 0;padding:0 4px}.web h2{margin:0 0 5px;font-size:19px}.web p{color:var(--muted);margin:0;font-size:14px}.web a{white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;font-weight:600}.notes{border-top:1px solid var(--line);padding-top:24px;font-size:14px;color:var(--muted)}.notes p{max-width:78ch}details{margin:18px 0 0}summary{cursor:pointer;min-height:44px;display:list-item;align-content:center;color:var(--ink)}.checksums{padding:10px 0}.checksums p{margin:8px 0}.checksums code{display:block;overflow-wrap:anywhere;font:12px/1.8 Consolas,monospace;color:var(--muted)}footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}footer a{display:inline-flex;align-items:center;min-height:44px}
+    @media(max-width:640px){.wrap{width:calc(100% - 36px)}header{padding:18px 0;gap:12px}.brand{font-size:17px;gap:9px}.brand img{width:38px;height:38px}.back{font-size:14px}main{padding:34px 0 28px}.intro p{font-size:16px}.platforms{margin-top:28px;padding:0 22px}.platform{grid-template-columns:1fr;gap:19px;padding:25px 0}.platform h2{font-size:23px}.actions{align-items:stretch}.download{width:100%;min-width:0}.actions small{text-align:center}.web{align-items:flex-start;flex-direction:column;gap:8px;margin:25px 0}.device-hint{font-size:13px}footer{gap:2px}.badge{font-size:11px}}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/" aria-label="旅伴 TripMate 首页"><img src="/tripmate-icon.png" width="46" height="46" alt="">旅伴 TripMate</a>
+      <a class="back" href="/">返回工作台 →</a>
+    </header>
+    <main>
+      <div class="intro">
+        <h1>把旅行计划，带在身边。</h1>
+        <p>在电脑上慢慢规划，在手机上随时查看。下载 TripMate，登录同一个账号，继续自己的行程。</p>
+        <p class="device-hint" id="device-hint" role="status">选择适合设备的版本，直接从本站下载安装包。</p>
+      </div>
+      <section class="platforms" aria-label="选择软件下载版本">
+        <article class="platform" id="android">
+          <div>
+            <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18h4"/></svg>Android <span class="badge">适合当前设备</span></h2>
+            <p>随身查看与管理行程</p>
+            <p class="meta">1.1.5 · Android 7.0 及以上</p>
+          </div>
+          <div class="actions">
+            <a class="download" id="download-android" href="/downloads/TripMate-v58-android-v1.1.5.apk">下载安卓 APK <span aria-hidden="true">↓</span></a>
+            <small>支持 ARMv7 / ARM64 手机和平板</small>
+          </div>
+        </article>
+        <article class="platform" id="windows">
+          <div>
+            <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 22h8M12 17v5"/></svg>Windows <span class="badge">适合当前设备</span></h2>
+            <p>大屏规划、编辑行程与导出 PDF</p>
+            <p class="meta">1.0.1 · Windows 10 / 11（64 位）· 118.2 MiB</p>
+          </div>
+          <div class="actions">
+            <a class="download" id="download-windows" href="/downloads/TripMate-v54-Windows-1.0.1-Setup.exe">下载 Windows 版 <span aria-hidden="true">↓</span></a>
+            <small>安装版 · 保留已有账号与行程</small>
+          </div>
+        </article>
+      </section>
+      <section class="web" aria-labelledby="web-title">
+        <div><h2 id="web-title">不安装，也可以出发。</h2><p id="web-note">iPhone、iPad、Mac 和其他设备可直接使用网页版。</p></div>
+        <a href="/">打开网页版 →</a>
+      </section>
+      <div class="notes"><p class="region-account-note">两个网址共用同一账号、行程、订单和 AI 额度。切换网址后使用同一账号登录；已有攻略不自动翻译。</p>
+        <p>安装包免费下载，使用时需要联网。AI 生成按账号额度和页面价格提示使用。网页、Windows 和安卓的功能支持可能不同。</p>
+        <p><span>安装包由本站服务器提供，支持断点续传。速度取决于服务器带宽和你的网络；下载中断时可在浏览器下载列表中继续。</span> <a href="https://github.com/xuantingjiang39/TripMate/releases/tag/v54" target="_blank" rel="noopener noreferrer">GitHub 备用下载</a>。安卓请在系统提示中核对安装来源；Windows 安装包尚未商业签名。</p>
+        <details><summary>查看安装包 SHA-256 校验值</summary><div class="checksums"><p>安卓 APK</p><code>69a3a085d9382a5f474fa20aa2b7c6199043042fee348aa97b081295c9a48ee8</code><p>Windows 安装版</p><code>6a56e6d98b490e692d30b9dcba647e10542de06b485159f07be1948eda595178</code></div></details>
+      </div>
+    </main>
+    <footer><span>旅伴 TripMate · 带爸妈旅行，少走冤枉路。</span><a href="https://github.com/xuantingjiang39/TripMate/issues/new/choose" target="_blank" rel="noopener noreferrer">遇到问题？告诉我们</a></footer>
+  </div>
+  <script>
+    (() => {
+      const ua = navigator.userAgent || '';
+      const hint = document.getElementById('device-hint');
+      if (/Android/i.test(ua)) {
+        document.getElementById('android').classList.add('recommended');
+        hint.textContent = '你正在使用安卓设备，可以下载 APK；也可继续使用网页版。';
+      } else if (/iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+        hint.textContent = '你正在使用 iPhone 或 iPad，目前请使用网页版，无需安装。';
+      } else if (/Windows NT/i.test(ua)) {
+        document.getElementById('windows').classList.add('recommended');
+        hint.textContent = '你正在使用 Windows，建议下载 Windows 版。';
+      }
+    })();
+  </script>
+</body>
+</html>
