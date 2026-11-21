@@ -1,13 +1,13 @@
 {
   "name": "TripMate",
   "displayName": "旅伴 TripMate",
-  "updatedAt": "2026-11-16",
+  "updatedAt": "2026-11-21",
   "root": "C:/codex/TripMate",
   "repository": {
     "url": "https://github.com/xuantingjiang39/TripMate",
     "visibility": "public",
     "defaultBranch": "main",
-    "releaseTag": "v72"
+    "releaseTag": "v73"
   },
   "components": {
     "windows": {
@@ -45,11 +45,11 @@
       "preparedDeployment": "manual-only"
     },
     "server": {
-      "source": "guest-v72",
-      "version": "v72-navigation-lifecycle",
-      "release": 72,
-      "installer": "TripMate-server-v72-navigation-lifecycle.zip",
-      "updateArchive": "TripMate-server-v72-update.zip",
+      "source": "guest-v73",
+      "version": "v73-client-ip-hardening",
+      "release": 73,
+      "installer": "TripMate-server-v73-update.zip",
+      "updateArchive": "TripMate-server-v73-update.zip",
       "lastObservedVersion": "v70-snapshot-reads",
       "deployment": "manual-only",
       "lastObservedVia": "authorized-OrcaTerm-local-and-public-HTTPS-health-2026-11-14",

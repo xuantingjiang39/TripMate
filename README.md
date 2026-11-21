@@ -4,6 +4,8 @@
 
 **当前国际入口：[tripmate-3x7.pages.dev](https://tripmate-3x7.pages.dev)**（网址不含个人用户名）。2026-11-14 用户明确授权后，国内与国际站均已部署 v70；服务器侧 HTTPS 健康检查通过。当前电脑到两个入口仍有连接问题，真实国际账号登录尚未验收。两入口共用原国内账号和数据。[部署记录](docs/deployment-v70-20261114.md) · [国际下载](https://tripmate-3x7.pages.dev/download)
 
+**2026-11-21 已准备 v73**：修复访客和登录来源限流可被伪造 `X-Forwarded-For` 绕过的问题。服务器只信任本机 Nginx 覆盖设置的 `X-Real-IP`；其他连接按 TCP 对端识别。生产环境最近确认仍为 v70，本次未部署。[v73 验证与安装](docs/release-v73-verification.md)
+
 **2026-11-16 已准备 v72**：停止定位会取消浏览器请求和待执行的地图跳转，旧 GPS 回调不再继续查询；切换日期、路线或账号也会结束原定位。首次进入正确显示第 1 天。生产环境最近确认仍为 v70，本次未部署。[v72 验证与安装](docs/release-v72-verification.md)
 
 **带爸妈旅行，少走冤枉路。把每天去哪、怎么去、何时休息，整理成可以修改和分享的行程。**
@@ -64,7 +66,7 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 
 源码公开，项目整体许可证尚未指定；第三方组件遵循各自许可证。本地历史版本与用户数据不包含在此仓库中。
 
-以下为当前源码入口与开发说明，更新于 2026-11-16。
+以下为当前源码入口与开发说明，更新于 2026-11-21。
 
 ## 从哪里继续开发
 
@@ -73,7 +75,7 @@ Windows 版是加载现有在线工作台的 Electron 客户端；安卓使用 R
 | Windows | [TripMate-desktop-v54](TripMate-desktop-v54/README.md) | 1.0.1 / v54 | Electron 联网桌面客户端，路线与日出新图标 |
 | Android / 原生移动端 | [TripMate-native-v58](TripMate-native-v58/README-原生App.md) | 1.1.5 / v58 | 简洁今日页、按日交通、说明按需展开，保留同步保护 |
 | 国际站 | `TripMate-pages-v72/` | v72 待部署 | 已部署仍为 v70；国际登录连通性待验收 |
-| 服务器与网页 | `guest-v72/` | v72-navigation-lifecycle | 本次未部署；最近线上确认仍为 v70 |
+| 服务器与网页 | `guest-v73/` | v73-client-ip-hardening | 本次未部署；最近线上确认仍为 v70 |
 
 Android 本地原生构建工作目录另在 `C:\tmb`，工具链在 `android-toolchain/`。不要把 Windows 桌面版覆盖到 Android 源码目录。
 
@@ -233,3 +235,11 @@ Windows 流程检查使用隔离的临时用户目录，真实接口只检查匿
 三条读取路径、390/1280px 浏览器异常响应注入、有效恢复、账号隔离、离线同步及下载回归通过；全部写入使用本机合成账号。没有自动部署、数据库迁移或配置重置，APK/EXE 未重新打包。
 
 [v70 更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v70/TripMate-server-v70-update.zip) · [Pages 包](https://github.com/xuantingjiang39/TripMate/releases/download/v70/TripMate-pages-v70-upload.zip) · [安装说明](guest-v70/v70-snapshot-reads.md) · [验证记录](docs/release-v70-verification.md)
+
+## v73 · 防止伪造来源绕过限流
+
+服务器此前读取 `X-Forwarded-For` 第一个值作为客户端地址，而 Nginx 会保留访问者提交的这个值再追加真实地址。伪造该头可绕过登录失败限制和游客每日体验限制，并污染会话设备中的网络信息。v73 仅在本机 Nginx 连接时读取 Nginx 覆盖写入的 `X-Real-IP`；非本机连接忽略转发头并使用 TCP 对端地址；格式无效时回退到对端地址。
+
+使用隔离临时账号启动真实本机 HTTP 服务，改变伪造的 `X-Forwarded-For` 连续申请游客体验，前三次成功、第四次按同一真实来源被拒绝；同时验证直连和无效代理头的回退逻辑。没有更改账号、行程、订单、AI 额度或第三方配置，没有自动部署，也没有修改移动端安装包。
+
+[v73 更新包](https://github.com/xuantingjiang39/TripMate/releases/download/v73/TripMate-server-v73-update.zip) · [安装说明](guest-v73/v73-client-ip-hardening.md) · [验证记录](docs/release-v73-verification.md)

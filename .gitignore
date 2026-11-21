@@ -479,6 +479,16 @@
 !/tools/verify-v72-state-validation.mjs
 !/tools/verify-v72-unified.mjs
 
+!/guest-v73/
+/guest-v73/*
+!/guest-v73/*.mjs
+!/guest-v73/*.js
+!/guest-v73/*.sh
+!/guest-v73/*.html
+!/guest-v73/*.md
+!/guest-v73/*.txt
+!/guest-v73/tripmate-icon.png
+
 # Defense in depth inside the allowlisted source directories.
 **/node_modules/
 **/dist/
